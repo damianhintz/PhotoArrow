@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="MapSource 6.13.4" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensions/v3/GpxExtensionsv3.xsd http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+
+  <metadata>
+    <link href="http://www.garmin.com">
+      <text>Garmin International</text>
+    </link>
+    <time>2016-07-27T06:11:40Z</time>
+    <bounds maxlat="54.3584720" maxlon="20.5392480" minlat="54.3583590" minlon="20.5389420"/>
+  </metadata>
+
+  <trk>
+    <name>025017395 F/F1 - pomiar bunkru</name>
+    <extensions>
+      <gpxx:TrackExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+        <gpxx:DisplayColor>White</gpxx:DisplayColor>
+      </gpxx:TrackExtension>
+    </extensions>
+    <trkseg>
+      <trkpt lat="54.3584540" lon="20.5389440">
+        <ele>148.2710000</ele>
+        <time>2016-07-20T09:23:44Z</time>
+      </trkpt>
+      <trkpt lat="54.3584240" lon="20.5389430">
+        <ele>148.1860000</ele>
+        <time>2016-07-20T09:23:47Z</time>
+      </trkpt>
+      <trkpt lat="54.3584140" lon="20.5389420">
+        <ele>148.1770000</ele>
+        <time>2016-07-20T09:23:50Z</time>
+      </trkpt>
+      <trkpt lat="54.3584070" lon="20.5389560">
+        <ele>148.0330000</ele>
+        <time>2016-07-20T09:23:53Z</time>
+      </trkpt>
+      <trkpt lat="54.3583850" lon="20.5390020">
+        <ele>147.8720000</ele>
+        <time>2016-07-20T09:23:56Z</time>
+      </trkpt>
+      <trkpt lat="54.3583680" lon="20.5390490">
+        <ele>147.7740000</ele>
+        <time>2016-07-20T09:23:59Z</time>
+      </trkpt>
+      <trkpt lat="54.3583590" lon="20.5390850">
+        <ele>147.6560000</ele>
+        <time>2016-07-20T09:24:05Z</time>
+      </trkpt>
+      <trkpt lat="54.3583600" lon="20.5391360">
+        <ele>147.6160000</ele>
+        <time>2016-07-20T09:24:08Z</time>
+      </trkpt>
+      <trkpt lat="54.3583620" lon="20.5391640">
+        <ele>147.7160000</ele>
+        <time>2016-07-20T09:24:14Z</time>
+      </trkpt>
+      <trkpt lat="54.3583770" lon="20.5392050">
+        <ele>147.8200000</ele>
+        <time>2016-07-20T09:24:17Z</time>
+      </trkpt>
+      <trkpt lat="54.3583920" lon="20.5392390">
+        <ele>148.0760000</ele>
+        <time>2016-07-20T09:24:23Z</time>
+      </trkpt>
+      <trkpt lat="54.3584140" lon="20.5392450">
+        <ele>148.2290000</ele>
+        <time>2016-07-20T09:24:26Z</time>
+      </trkpt>
+      <trkpt lat="54.3584400" lon="20.5392480">
+        <ele>148.5330000</ele>
+        <time>2016-07-20T09:24:29Z</time>
+      </trkpt>
+      <trkpt lat="54.3584480" lon="20.5392480">
+        <ele>149.0810000</ele>
+        <time>2016-07-20T09:24:35Z</time>
+      </trkpt>
+      <trkpt lat="54.3584600" lon="20.5392120">
+        <ele>149.1300000</ele>
+        <time>2016-07-20T09:24:38Z</time>
+      </trkpt>
+      <trkpt lat="54.3584710" lon="20.5391630">
+        <ele>148.9760000</ele>
+        <time>2016-07-20T09:24:44Z</time>
+      </trkpt>
+      <trkpt lat="54.3584710" lon="20.5391510">
+        <ele>148.8260000</ele>
+        <time>2016-07-20T09:24:47Z</time>
+      </trkpt>
+      <trkpt lat="54.3584720" lon="20.5390980">
+        <ele>148.7640000</ele>
+        <time>2016-07-20T09:24:50Z</time>
+      </trkpt>
+      <trkpt lat="54.3584700" lon="20.5390410">
+        <ele>148.5030000</ele>
+        <time>2016-07-20T09:24:53Z</time>
+      </trkpt>
+      <trkpt lat="54.3584680" lon="20.5389840">
+        <ele>148.3450000</ele>
+        <time>2016-07-20T09:24:56Z</time>
+      </trkpt>
+      <trkpt lat="54.3584610" lon="20.5389530">
+        <ele>148.6080000</ele>
+        <time>2016-07-20T09:25:02Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+
+</gpx>
