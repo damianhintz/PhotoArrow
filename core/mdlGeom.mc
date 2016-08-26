@@ -96,7 +96,6 @@ DPoint3d* mdlGeom_pobierzPunkty(MSElementDescr* edP, ModelNumber modelRefP, int*
 }
 
 DPoint3d* mdlGeom_pobierzPunktyKompleksu(MSElementDescr* edP, ModelNumber modelRefP, int* nPunktyP) {
-    char msg[128];
     DPoint3d* aPunkty = NULL;
     DPoint3d* aPunktyTemp = NULL;
     int nPunktyTemp = 0;
@@ -138,7 +137,6 @@ DPoint3d* mdlGeom_pobierzPunktyKompleksu(MSElementDescr* edP, ModelNumber modelR
 }
 
 int mdlGeom_obliczPunktyKompleksu(MSElementDescr* edP, ModelNumber modelRefP, int* nPunktyP) {
-    char msg[128];
     DPoint3d* aPunktyTemp = NULL;
     int nPunktyTemp = 0;
     MSElementDescr* pComponent = NULL;

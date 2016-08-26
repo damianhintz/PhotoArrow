@@ -76,7 +76,7 @@ int mdlLogger_alert(char* msg) {
     else return FALSE;
 }
 
-int mdlLogger_findPhotos() {
+int photoReader_findPhotos() {
     char photosDirectory[MAXFILELENGTH];
     char dev[MAXDEVICELENGTH];
     char dir[MAXDIRLENGTH];
@@ -96,7 +96,7 @@ int mdlLogger_findPhotos() {
         FindFileInfo* fileP = &files[index];
         char* fileName = fileP->name;
         char photoName[64];
-        getPhotoName(fileName, photoName);
+        photoReader_parsePhotoName(fileName, photoName);
         //mdlLogger_info(fileName);
         //000000000 - 0000-000 - *.jpg
         //mdlLogger_info(photoName);
@@ -105,7 +105,7 @@ int mdlLogger_findPhotos() {
     return countFiles;
 }
 
-int getPhotoName(char* fileName, char* photoName) {
+int photoReader_parsePhotoName(char* fileName, char* photoName) {
     int firstDash = 0; //Find first dash -
     int secondDash = 0; //Find second dash -
     int startPhoto = 0, endPhoto = 0;

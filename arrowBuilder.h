@@ -7,6 +7,8 @@
 
 #ifndef ARROWBUILDER_H
 #define ARROWBUILDER_H
+#include <math.h>
+#include "app\mdlLogger.h"
 #include "fenceReader.h"
 
 typedef struct _photoArrow {
@@ -29,6 +31,7 @@ void arrowBuilder_addArrow(LpArrowBuilder this, LpPhotoPoint startPoint, LpPhoto
 PhotoPoint* arrowBuilder_binarySearch(PhotoPoint* key, PhotoPoint* points, long count);
 int arrowBuilder_comparePhotoPoints(LpPhotoPoint p1, LpPhotoPoint p2);
 void arrowWriter_saveAll(LpArrowBuilder this);
+double angle(DPoint3d* p0, DPoint3d* p1);
 
 #endif /* ARROWBUILDER_H */
 

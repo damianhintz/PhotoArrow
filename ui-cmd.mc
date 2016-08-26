@@ -48,7 +48,7 @@ void photoPoints_loadFromFence() {
                 "Program zostanie przerwany. Attach reference file or display it!");
         return;
     }
-    photos = mdlLogger_findPhotos();
+    photos = photoReader_findPhotos();
     sprintf(_msg, "%d photo files", photos);
     mdlLogger_info(_msg);
     

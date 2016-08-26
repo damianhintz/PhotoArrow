@@ -42,7 +42,6 @@ int element_readAttributes(MSElementDescr *edP, ModelNumber modelRef, int* typeP
 int obiektDgn_isSymbol(int elemType);
 int obiektDgn_readSymbol(MSElementDescr *edP, char* name, DPoint3d* origin, ModelNumber modelRefP);
 int obiektDgn_readSymbolAttributes(MSElementDescr* edP, ULong* levelP, UInt32* colorP, UInt32* weigthP, Int32* styleP);
-int mdlSymbol_createFromText(MSElementDescr** edPsymbol, MSElementDescr* edPtekst, char* cellName);
 
 int obiektDgn_jestObszarem(int elemType);
 int obiektDgn_jestProsty(int elemType);

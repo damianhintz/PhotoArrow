@@ -329,48 +329,6 @@ int dgnCell_extractRect(MSElementDescr* edP, ModelNumber modelRefP, MSElementUni
     return bKwadrat;
 }
 
-int mdlSymbol_createFromText(MSElementDescr** edPsymbol, MSElementDescr* edPtekst, char* cellName) {
-    MSElement cellElm;
-    MSWChar cell[MAX_CELLNAME_LENGTH];
-    DPoint3d origin;
-    BoolInt pointCell = TRUE;
-    MSElementDescr* edPnew = NULL;
-    int length;
-    short attributes[MAX_ATTRIBSIZE];
-
-#if MSVERSION >= 0x790
-    //wcstombs (name, cellName, MAX_CELLNAME_LENGTH);
-    mbstowcs(cell, cellName, MAX_CELLNAME_LENGTH);
-#else
-    strcpy(cell, cellName);
-#endif
-
-    if (!mdlText_readText(edPtekst, NULL, &origin))
-        return FALSE;
-
-    if (SUCCESS != mdlCell_create(&cellElm, cell, &origin, pointCell))
-        return FALSE;
-
-    mdlElmdscr_extractAttributes(&length, attributes, edPtekst);
-
-    //if (length > 0) mdlElmdscr_appendAttributes (&edPsymbol, length, attributes);
-    //if (length > 0) mdlElement_appendAttributes (&cellElm, length, attributes);
-    //mdlElement_stripAttributes (&cellElm, &edPtekst->el);
-    mdlElmdscr_stripAttributes(&edPtekst);
-
-    if (SUCCESS != mdlElmdscr_new(&edPnew, NULL, &cellElm))
-        return FALSE;
-
-    if (length > 0) mdlElmdscr_appendAttributes(&edPnew, length, attributes);
-
-    if (SUCCESS != mdlElmdscr_appendDscr(edPnew, edPtekst))
-        return FALSE;
-
-    *edPsymbol = edPnew;
-
-    return TRUE;
-}
-
 int mdlElem_obliczZakres(DPoint3d* minp, DPoint3d* maxp, DPoint3d* pts, int numpts) {
     int i;
 

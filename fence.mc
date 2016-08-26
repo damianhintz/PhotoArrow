@@ -17,7 +17,7 @@ void fence_free(LpFence this) {
 }
 
 int fence_load(LpFence this) {
-    int i = 0;
+    //int i = 0;
     if (NULL == this) return FALSE;
     //init fence
     mdlFence_fromUniverse(tcb->lstvw); //remember to set fence

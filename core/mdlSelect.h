@@ -1,6 +1,5 @@
 #if !defined (H_SELEKCJONOWANIE)
 #define H_SELEKCJONOWANIE
-
 #include <mdl.h>
 #include <mselems.h>
 #include <userfnc.h>
@@ -61,7 +60,7 @@ int mdlSelection_init(PlikDgnSelekcja* argP);
 int mdlSelection_free(PlikDgnSelekcja* argP);
 int mdlSelection_summary(PlikDgnSelekcja* argP);
 int mdlSelection_load(PlikDgnSelekcja* argP);
-int mdlSelection_search(int (*plikDgn_selekcjaFunc)(MSElementDescr* edP, void* vargP), void* argP);
+int mdlSelection_search(int (*plikDgn_selekcjaFunc)(ElementSelection* argP), void* argP);
 int mdlSelection_count(ElementSelection* argP);
 
 #endif

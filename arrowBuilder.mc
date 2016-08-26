@@ -56,23 +56,62 @@ int arrowBuilder_comparePhotoPoints(LpPhotoPoint p1, LpPhotoPoint p2) {
 
 void arrowWriter_saveAll(LpArrowBuilder this) {
     int i;
+    MSElement* lineP = NULL, *textP = NULL;
     for (i = 0; i < this->arrowsCount; i++) {
         //save arrow as line string (scale it to 80%)
         PhotoArrow* arrowP = &this->arrows[i];
-        MSElement* lineP, *textP;
-        ULong font = 3;
-        double height = 0.50;
-        double rotation = 45.0;
         DPoint3d points[2];
         points[0] = arrowP->startPoint;
         points[1] = arrowP->endPoint;
         if (SUCCESS != mdlLine_create(lineP, NULL, points)) continue;
         mdlElement_add(lineP);
-        //add photo name
-        if (!mdlText_createFromPoint(textP, &points[1], arrowP->name, font, height, rotation)) continue;
-        mdlElement_add(textP);
+        if (arrowBuilder_createTextAtTheEndOfVector(textP, arrowP->name, &arrowP->startPoint, &arrowP->endPoint)) {
+            mdlElement_add(textP);
+        } else {
+            mdlLogger_info("arrowBuilder: error");
+        }
+        
     }
     mdlLogger_info("arrows added to file");
     //int mdlLine_create(MSElement* pElementOut, MSElement* pElementIn, DPoint3d* points);
     //int mdlLineString_create(MSElement* out, MSElement* in, DPoint3d* points, int numVerts);
+}
+
+int arrowBuilder_createTextAtTheEndOfVector(MSElement* textP, char* text, DPoint3d* startPoint, DPoint3d* endPoint) {
+    ULong font = 1;
+    double height = 2.0;
+    double rotation = angle(startPoint, endPoint);
+    int just = TXTJUST_LB;
+    RotMatrix rotMatrix;
+    TextParam param;
+    TextSizeParam size;
+
+    param.font = font;
+    param.just = just;
+    
+    size.mode = TXT_BY_TILE_SIZE;
+    size.size.height = mdlCnv_masterUnitsToUors(height);
+    size.size.width = mdlCnv_masterUnitsToUors(height);
+    size.aspectRatio = 1;
+
+    mdlRMatrix_fromAngle(&rotMatrix, rotation);
+    //mdlRMatrix_fromAngle(&rotMatrix, ((rotation * 3.14159265) / 180.0));
+    
+    if (strlen(text) == 0) return FALSE;
+    if (SUCCESS != mdlText_create(textP, NULL, text, endPoint, &size, &rotMatrix, &param, NULL)) {
+        return FALSE;
+    }
+    return TRUE;
+}
+
+// Returns the angle of the vector from p0 to p1, relative to the positive X-axis.
+// The angle is normalized to be in the range [ -Pi, Pi ].
+// <param name="p0">The start-point</param>
+// <param name="p1">The end-point</param>
+// Returns the normalized angle (in radians) that p0-p1 makes with the positive X-axis.
+
+double angle(DPoint3d* p0, DPoint3d* p1) {
+    double dx = p1->x - p0->x;
+    double dy = p1->y - p0->y;
+    return atan2(dy, dx);
 }

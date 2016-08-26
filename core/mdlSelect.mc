@@ -18,11 +18,11 @@ int mdlSelection_free(PlikDgnSelekcja* this) {
 }
 
 int mdlSelection_summary(PlikDgnSelekcja* this) {
-    char msg[256];
+    //char msg[256];
     if (this == NULL) return FALSE;
-    sprintf(msg, "skanowanie: teksty %d, symbole %d, obszary %d, inne %d",
-        this->nTeksty, this->nSymbole, this->nObszary, this->nInneObiekty);
-    mdlLogger_info(msg);
+    //sprintf(msg, "skanowanie: teksty %d, symbole %d, obszary %d, inne %d",
+    //    this->nTeksty, this->nSymbole, this->nObszary, this->nInneObiekty);
+    //mdlLogger_info(msg);
     return TRUE;
 }
 
@@ -50,7 +50,7 @@ int mdlSelection_search(int (*plikDgn_selekcjaFunc)(ElementSelection* argP), voi
         
     }
     mdlSystem_stopBusyCursor();
-    mdlLogger_info("-KONIEC-");
+    //mdlLogger_info("-KONIEC-");
     return TRUE;
 }
 

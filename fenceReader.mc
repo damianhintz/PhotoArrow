@@ -75,8 +75,8 @@ int fenceReader_load(LpFenceReader this, LpFence fenceP) {
     int i = 0;
     if (NULL == this) return FALSE;
     if (NULL == fenceP) return FALSE;
-    mdlLogger_printExt("#", "startPoints");
-    mdlLogger_printExt("#", "endPoints");
+    //mdlLogger_printExt("#", "startPoints");
+    //mdlLogger_printExt("#", "endPoints");
 
     fenceReader_allocStartPoints(this, fenceP->nSelected);
     fenceReader_allocEndPoints(this, fenceP->nSelected);

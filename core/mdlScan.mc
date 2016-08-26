@@ -1,5 +1,6 @@
 #include "mdlScan.h"
 #include "mdlElement.h"
+#include "mdlText.h"
 #include "..\app\mdlUtil.h"
 
 int plikDgn_skanujPlik(int (*plikDgn_skanujPlikFunc)(MSElementDescr* edP, void* argP), void* argP) {
@@ -85,8 +86,6 @@ int plikDgnSkanowanie_zwolnij(PlikDgnSkanowanie* argP) {
 }
 
 int plikDgnSkanowanie_wczytaj(PlikDgnSkanowanie* argP) {
-    //char msg[256];
-
     if (argP == NULL)
         return FALSE;
 
@@ -94,22 +93,20 @@ int plikDgnSkanowanie_wczytaj(PlikDgnSkanowanie* argP) {
     if (!plikDgn_skanujPlik(plikDgn_skanujPlikPolicz, argP)) {
         return FALSE;
     }
-
-    /* od�wie� widok */
     if (SUCCESS == mdlView_updateSingle(tcb->lstvw));
 
     return TRUE;
 }
 
 int plikDgnSkanowanie_wypisz(PlikDgnSkanowanie* argP) {
-    char msg[256];
+    //char msg[256];
 
     if (argP == NULL)
         return FALSE;
 
-    sprintf(msg, "skanowanie: teksty %d, symbole %d, obszary %d, inne %d",
-            argP->nTeksty, argP->nSymbole, argP->nObszary, argP->nInneObiekty);
-    mdlLogger_info(msg);
+    //sprintf(msg, "skanowanie: teksty %d, symbole %d, obszary %d, inne %d",
+    //        argP->nTeksty, argP->nSymbole, argP->nObszary, argP->nInneObiekty);
+    //mdlLogger_info(msg);
 
     return TRUE;
 }
