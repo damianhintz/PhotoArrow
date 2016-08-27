@@ -10,9 +10,10 @@
 #include <math.h>
 #include "app\mdlLogger.h"
 #include "fenceReader.h"
+#define MAX_ARROWS 10000
 
 typedef struct _photoArrow {
-    char name[256];
+    char name[32];
     DPoint3d startPoint;
     DPoint3d endPoint;
 } PhotoArrow, *LpPhotoArrow;
@@ -20,7 +21,6 @@ typedef struct _photoArrow {
 typedef struct _arrowBuilder {
     PhotoArrow* arrows;
     int arrowsCount;
-    int arrowsSize;
 } ArrowBuilder, *LpArrowBuilder;
 
 void arrowBuilder_init(LpArrowBuilder this, LpFenceReader reader);
@@ -31,6 +31,8 @@ void arrowBuilder_addArrow(LpArrowBuilder this, LpPhotoPoint startPoint, LpPhoto
 PhotoPoint* arrowBuilder_binarySearch(PhotoPoint* key, PhotoPoint* points, long count);
 int arrowBuilder_comparePhotoPoints(LpPhotoPoint p1, LpPhotoPoint p2);
 void arrowWriter_saveAll(LpArrowBuilder this);
+
+int arrowBuilder_createTextAtTheEndOfVector(MSElement* textP, char* text, DPoint3d* startPoint, DPoint3d* endPoint);
 double angle(DPoint3d* p0, DPoint3d* p1);
 
 #endif /* ARROWBUILDER_H */

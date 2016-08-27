@@ -7,9 +7,9 @@
       <itemPath>app-ver.h</itemPath>
       <itemPath>app.h</itemPath>
       <itemPath>arrowBuilder.h</itemPath>
+      <itemPath>cmd.h</itemPath>
       <itemPath>core.h</itemPath>
       <itemPath>def-v8.h</itemPath>
-      <itemPath>fence.h</itemPath>
       <itemPath>fenceReader.h</itemPath>
       <itemPath>main.h</itemPath>
       <itemPath>ui-cmd.h</itemPath>
@@ -52,7 +52,7 @@
         <itemPath>core/mdlText.mc</itemPath>
       </logicalFolder>
       <itemPath>arrowBuilder.mc</itemPath>
-      <itemPath>fence.mc</itemPath>
+      <itemPath>cmd.mc</itemPath>
       <itemPath>fenceReader.mc</itemPath>
       <itemPath>main.mc</itemPath>
       <itemPath>ui-cmd.mc</itemPath>
@@ -118,6 +118,10 @@
       </item>
       <item path="arrowBuilder.mc" ex="false" tool="0" flavor2="0">
       </item>
+      <item path="cmd.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="cmd.mc" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="core.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="core/mdlElement.h" ex="false" tool="3" flavor2="0">
@@ -149,10 +153,6 @@
       <item path="core/mdlText.mc" ex="false" tool="0" flavor2="0">
       </item>
       <item path="def-v8.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="fence.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="fence.mc" ex="false" tool="0" flavor2="0">
       </item>
       <item path="fenceReader.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -223,6 +223,10 @@
       </item>
       <item path="arrowBuilder.mc" ex="false" tool="0" flavor2="0">
       </item>
+      <item path="cmd.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="cmd.mc" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="core.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="core/mdlElement.h" ex="false" tool="3" flavor2="0">
@@ -254,10 +258,6 @@
       <item path="core/mdlText.mc" ex="false" tool="0" flavor2="0">
       </item>
       <item path="def-v8.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="fence.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="fence.mc" ex="false" tool="0" flavor2="0">
       </item>
       <item path="fenceReader.h" ex="false" tool="3" flavor2="0">
       </item>

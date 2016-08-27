@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/app/mdlLogger.o \
 	${OBJECTDIR}/app/mdlUtil.o \
 	${OBJECTDIR}/arrowBuilder.o \
+	${OBJECTDIR}/cmd.o \
 	${OBJECTDIR}/core/mdlElement.o \
 	${OBJECTDIR}/core/mdlFence.o \
 	${OBJECTDIR}/core/mdlGeom.o \
@@ -47,7 +48,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/core/mdlScan.o \
 	${OBJECTDIR}/core/mdlSelect.o \
 	${OBJECTDIR}/core/mdlText.o \
-	${OBJECTDIR}/fence.o \
 	${OBJECTDIR}/fenceReader.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/ui-cmd.o \
@@ -103,6 +103,11 @@ ${OBJECTDIR}/arrowBuilder.o: arrowBuilder.mc
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/arrowBuilder.o arrowBuilder.mc
 
+${OBJECTDIR}/cmd.o: cmd.mc 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cmd.o cmd.mc
+
 ${OBJECTDIR}/core/mdlElement.o: core/mdlElement.mc 
 	${MKDIR} -p ${OBJECTDIR}/core
 	${RM} "$@.d"
@@ -137,11 +142,6 @@ ${OBJECTDIR}/core/mdlText.o: core/mdlText.mc
 	${MKDIR} -p ${OBJECTDIR}/core
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/mdlText.o core/mdlText.mc
-
-${OBJECTDIR}/fence.o: fence.mc 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fence.o fence.mc
 
 ${OBJECTDIR}/fenceReader.o: fenceReader.mc 
 	${MKDIR} -p ${OBJECTDIR}

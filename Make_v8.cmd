@@ -39,6 +39,7 @@
 @rem ui-cfg.rsc
 
 @echo Autoinstall mdl
+@if not exist build mkdir build
 @if exist %name%.ma copy /Y %name%.ma %MS%\mdlapps\%name%.ma
 @if exist %name%.ma move /Y %name%.ma build\%name%.ma
 
