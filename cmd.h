@@ -15,10 +15,12 @@
 #include <mscell.fdf>
 #include <msinput.fdf>
 #include <msreffil.fdf>
+#include <cmdlist.h>
+#include <msdialog.fdf>
+#include <msparse.fdf>
 #include "main.h"
 #include "fenceReader.h"
 #include "arrowBuilder.h"
-#include "app.h"
 #include "ui.h"
 #include "ui-cmd.h"
 
@@ -27,8 +29,7 @@ void command_loadArrowsFromFile();
 
 void appConfig_setScale(int scale);
 void appConfig_setLevel(int level);
-int getRefCount();
-int scanMasterFile();
+//int getRefCount();
 
 #endif /* CMD_H */
 

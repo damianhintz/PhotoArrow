@@ -17,7 +17,7 @@
 #include "def-v8.h"
 #include "core.h"
 #include "app.h"
-#define MAX_POINTS 10000
+//#define MAX_POINTS 10000
 
 typedef struct _photoPoint {
     char name[32];
@@ -25,6 +25,7 @@ typedef struct _photoPoint {
 } PhotoPoint, *LpPhotoPoint;
 
 typedef struct _fenceReader {
+    int maxCount;
     int masterCount;
     int refCount;
     PhotoPoint* startPoints;
@@ -38,6 +39,8 @@ typedef struct _fenceReader {
 void fence_init(LpFenceReader this);
 void fence_free(LpFenceReader this);
 void fence_summary(LpFenceReader this);
+int fence_count(LpFenceReader this);
+int fence_countRefElement(LpFenceReader this);
 int fence_load(LpFenceReader this);
 int fence_selectCurrentRefElement(LpFenceReader this);
 int fence_parseRef(LpFenceReader this, MSElementDescr* edP, ModelNumber fileNum);

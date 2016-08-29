@@ -1,44 +1,46 @@
 #include "arrowBuilder.h"
 
-void arrowBuilder_init(LpArrowBuilder thisP, LpFenceReader reader) {
+void arrowBuilder_init(LpArrowBuilder thisP, LpFenceReader readerP) {
     if (thisP == NULL) return;
-    if (reader == NULL) return;
-    thisP->arrows = (PhotoArrow*) calloc(MAX_ARROWS, sizeof (PhotoArrow));
+    if (readerP == NULL) return;
+    thisP->maxArrows = readerP->refCount;
+    thisP->arrows = (PhotoArrow*) calloc(readerP->refCount, sizeof (PhotoArrow));
     thisP->arrowsCount = 0;
 }
 
-void arrowBuilder_free(LpArrowBuilder this) {
-    free(this->arrows);
+void arrowBuilder_free(LpArrowBuilder thisP) {
+    free(thisP->arrows);
 }
 
-void arrowBuilder_summary(LpArrowBuilder this) {
+void arrowBuilder_summary(LpArrowBuilder thisP) {
     char msg[256];
-    sprintf(msg, "arrows: %d count", this->arrowsCount);
+    sprintf(msg, "arrows: %d count", thisP->arrowsCount);
     mdlLogger_info(msg);
 }
 
-void arrowBuilder_addArrow(LpArrowBuilder this, LpPhotoPoint startPoint, LpPhotoPoint endPoint) {
-    int index = this->arrowsCount;
-    PhotoArrow* arrowP = &this->arrows[index];
-    if (index >= MAX_ARROWS) return; //no room
+void arrowBuilder_addArrow(LpArrowBuilder thisP, LpPhotoPoint startPoint, LpPhotoPoint endPoint) {
+    int index = thisP->arrowsCount;
+    PhotoArrow* arrowP = &thisP->arrows[index];
+    if (index >= thisP->maxArrows) return; //no room
     if (strcmp(startPoint->name, endPoint->name) != 0) return; //
     strncpy(arrowP->name, startPoint->name, sizeof (arrowP->name));
     arrowP->startPoint = startPoint->point;
     arrowP->endPoint = endPoint->point;
-    this->arrowsCount++;
+    thisP->arrowsCount++;
 }
 
-void arrowBuilder_load(LpArrowBuilder this, LpFenceReader reader) {
+void arrowBuilder_load(LpArrowBuilder thisP, LpFenceReader readerP) {
     int i = 0;
-    for (i = 0; i < reader->startPointsCount; i++) {
-        PhotoPoint* startPointP = &reader->startPoints[i];
-        PhotoPoint* endPointP = arrowBuilder_binarySearch(startPointP, reader->endPoints, reader->endPointsCount);
+    mdlLogger_info("arrowBuilder: building arrows from photos");
+    for (i = 0; i < readerP->startPointsCount; i++) {
+        PhotoPoint* startPointP = &readerP->startPoints[i];
+        PhotoPoint* endPointP = arrowBuilder_binarySearch(startPointP, readerP->endPoints, readerP->endPointsCount);
         if (endPointP == NULL) {
             mdlLogger_err(startPointP->name);
             continue; //no end point
         }
         //build arrow from points
-        arrowBuilder_addArrow(this, startPointP, endPointP);
+        arrowBuilder_addArrow(thisP, startPointP, endPointP);
     }
 }
 
@@ -61,45 +63,65 @@ void arrowWriter_saveAll(LpArrowBuilder this) {
     char dir[MAXDIRLENGTH];
     char name[MAXNAMELENGTH];
     //char ext[MAXEXTENSIONLENGTH];
+    mdlLogger_info("arrowWriter: saving arrows to file");
     mdlFile_parseName(tcb->dgnfilenm, dev, dir, name, NULL);
     mdlFile_buildName(fileName, dev, dir, name, "arrows");
-    
+
     file = mdlTextFile_open(fileName, TEXTFILE_WRITE);
     if (file == NULL) return;
-    
-    //MSElement* lineP = NULL, *textP = NULL;
     for (i = 0; i < this->arrowsCount; i++) {
+        MSElement line, text;
         //save arrow as line string (scale it to 80%)
         PhotoArrow* arrowP = &this->arrows[i];
         sprintf(msg, "%.2f %.2f %.2f %.2f %s",
                 arrowP->startPoint.x, arrowP->startPoint.y,
                 arrowP->endPoint.x, arrowP->endPoint.y,
                 arrowP->name);
-        //mdlLogger_info(msg);
         mdlTextFile_putString(msg, file, TEXTFILE_DEFAULT); //TEXTFILE_NO_NEWLINE
-        //DPoint3d points[2];
-        //points[0] = arrowP->startPoint;
-        //points[1] = arrowP->endPoint;
-        //if (SUCCESS != mdlLine_create(lineP, NULL, points)) continue;
-        //mdlElement_add(lineP);
-        //if (arrowBuilder_createTextAtTheEndOfVector(textP, arrowP->name, &arrowP->startPoint, &arrowP->endPoint)) {
-        //    mdlElement_add(textP);
-        //} else {
-        //    mdlLogger_info("arrowBuilder: error");
-        //}
+
+        if (arrowBuilder_createArrowFromVector(&line, arrowP)) {
+            mdlElement_add(&line);
+        }
+        if (arrowBuilder_createTextAtTheEndOfVector(&text, arrowP)) {
+            mdlElement_add(&text);
+        }
     }
     mdlTextFile_close(file);
-    mdlLogger_info("arrows added to file");
-    
-    //int mdlLine_create(MSElement* pElementOut, MSElement* pElementIn, DPoint3d* points);
-    //int mdlLineString_create(MSElement* out, MSElement* in, DPoint3d* points, int numVerts);
 }
 
-int arrowBuilder_createTextAtTheEndOfVector(MSElement* textP, char* text, DPoint3d* startPoint, DPoint3d* endPoint) {
+int arrowBuilder_createArrowFromVector(MSElement* lineP, PhotoArrow* arrowP) {
+    DPoint3d points[6];
+    DPoint3d normal, left, right, middle, first, last;
+    mdlVec_computeNormal(&normal, &arrowP->endPoint, &arrowP->startPoint);
+    mdlVec_scale(&normal, &normal, mdlCnv_masterUnitsToUors(1));
+    first = arrowP->startPoint;
+    last = arrowP->endPoint;
+    middle.z = 0;
+    middle.y = last.y - normal.y * 2;
+    middle.x = last.x - normal.x * 2;
+    left.z = 0;
+    left.y = middle.y + normal.x;
+    left.x = middle.x - normal.y;
+    right.z = 0;
+    right.y = middle.y - normal.x;
+    right.x = middle.x + normal.y;
+    points[0] = first;
+    points[1] = middle;
+    points[2] = left;
+    points[3] = last;
+    points[4] = right;
+    points[5] = middle;
+    //int mdlLineString_create(MSElement* out, MSElement* in, DPoint3d* points, int numVerts);
+    //int mdlLine_create(MSElement* pElementOut, MSElement* pElementIn, DPoint3d* points);
+    return SUCCESS == mdlLineString_create(lineP, NULL, points, 6);
+}
+
+int arrowBuilder_createTextAtTheEndOfVector(MSElement* textP, PhotoArrow* arrowP) {
     ULong font = 1;
     double height = 2.0;
-    double rotation = angle(startPoint, endPoint);
-    int just = TXTJUST_LB;
+    double rotation = angle(&arrowP->startPoint, &arrowP->endPoint);
+    //int just = TXTJUST_LB; //left bottom
+    int just = TXTJUST_LC; //left center
     RotMatrix rotMatrix;
     TextParam param;
     TextSizeParam size;
@@ -114,12 +136,9 @@ int arrowBuilder_createTextAtTheEndOfVector(MSElement* textP, char* text, DPoint
 
     mdlRMatrix_fromAngle(&rotMatrix, rotation);
     //mdlRMatrix_fromAngle(&rotMatrix, ((rotation * 3.14159265) / 180.0));
+    if (strlen(arrowP->name) == 0) return FALSE;
 
-    if (strlen(text) == 0) return FALSE;
-    if (SUCCESS != mdlText_create(textP, NULL, text, endPoint, &size, &rotMatrix, &param, NULL)) {
-        return FALSE;
-    }
-    return TRUE;
+    return SUCCESS == mdlText_create(textP, NULL, arrowP->name, &arrowP->endPoint, &size, &rotMatrix, &param, NULL);
 }
 
 // Returns the angle of the vector from p0 to p1, relative to the positive X-axis.
