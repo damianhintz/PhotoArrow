@@ -38,7 +38,4 @@ void mdlLogger_printExt(char* line, char* ext);
 int mdlLogger_selectFile(char* workFileP, char* titleP, char* extP);
 int mdlLogger_alert(char* msg);
 
-int photoReader_findPhotos();
-int photoReader_parsePhotoName(char* fileName, char* photoName);
-
 #endif

@@ -1,3 +1,5 @@
+#if !defined (H_MDL_APP)
+#define H_MDL_APP
 #include <mdl.h>
 #include <mselems.h>
 #include <userfnc.h>
@@ -24,9 +26,6 @@
 #include <mstypes.h>
 #include <stdio.h>
 #include <stdlib.h>
-
-#if !defined (H_MDL_APP)
-#define H_MDL_APP
 #include "def-v8.h"
 
 extern char g_appPath[MAXFILELENGTH];

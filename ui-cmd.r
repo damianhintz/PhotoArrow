@@ -13,7 +13,7 @@ Table CT_MAIN =
 
 Table CT_MENU =
 {
-    {0, CT_NONE, INHERIT, NONE, "init"},
+    {0, CT_NONE, INHERIT, NONE, "start"},
     {1, CT_NONE, INHERIT, NONE, "help"},
     {2, CT_CONFIG, INHERIT, NONE, "config"},
     {3, CT_NONE, INHERIT, NONE, "references"},

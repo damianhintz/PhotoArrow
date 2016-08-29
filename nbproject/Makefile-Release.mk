@@ -50,6 +50,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/core/mdlText.o \
 	${OBJECTDIR}/fenceReader.o \
 	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/photoReader.o \
 	${OBJECTDIR}/ui-cmd.o \
 	${OBJECTDIR}/ui.o
 
@@ -152,6 +153,11 @@ ${OBJECTDIR}/main.o: main.mc
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.mc
+
+${OBJECTDIR}/photoReader.o: photoReader.mc 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/photoReader.o photoReader.mc
 
 ${OBJECTDIR}/ui-cmd.o: ui-cmd.mc 
 	${MKDIR} -p ${OBJECTDIR}

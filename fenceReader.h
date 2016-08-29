@@ -17,10 +17,10 @@
 #include "def-v8.h"
 #include "core.h"
 #include "app.h"
-//#define MAX_POINTS 10000
+#include "photoReader.h"
 
 typedef struct _photoPoint {
-    char name[32];
+    char name[MAX_PHOTO_NAME];
     DPoint3d point;
 } PhotoPoint, *LpPhotoPoint;
 
@@ -30,22 +30,26 @@ typedef struct _fenceReader {
     int refCount;
     PhotoPoint* startPoints;
     int startPointsCount;
-    //int startPointsSize;
     PhotoPoint* endPoints;
     int endPointsCount;
-    //int endPointsSize;
 } FenceReader, *LpFenceReader;
 
-void fence_init(LpFenceReader this);
-void fence_free(LpFenceReader this);
-void fence_summary(LpFenceReader this);
-int fence_count(LpFenceReader this);
-int fence_countRefElement(LpFenceReader this);
-int fence_load(LpFenceReader this);
-int fence_selectCurrentRefElement(LpFenceReader this);
-int fence_parseRef(LpFenceReader this, MSElementDescr* edP, ModelNumber fileNum);
-void fence_parseMaster(LpFenceReader this, MSElementDescr* edP, ModelNumber fileNum);
-void fence_sort(LpFenceReader this);
+void fenceReader_init(LpFenceReader thisP);
+void fenceReader_free(LpFenceReader thisP);
+void fenceReader_summary(LpFenceReader thisP);
+int fenceReader_count(LpFenceReader thisP);
+int fence_countRefElement(LpFenceReader thisP);
+int fenceReader_load(LpFenceReader thisP);
+int fence_selectCurrentRefElement(LpFenceReader thisP);
+int fence_parseRef(LpFenceReader thisP, MSElementDescr* edP, ModelNumber fileNum);
+void fence_parseMaster(LpFenceReader thisP, MSElementDescr* edP, ModelNumber fileNum);
+
+int fenceReader_searchStartName(LpFenceReader thisP, char* photoName, DPoint3d* foundP);
+int fenceReader_searchEndName(LpFenceReader thisP, char* photoName, DPoint3d* foundP);
+PhotoPoint* fenceReader_binarySearch(LpPhotoPoint key, PhotoPoint* points, long count);
+int fenceReader_comparePhotos(LpPhotoPoint p1, LpPhotoPoint p2);
+
+void fence_sort(LpFenceReader thisP);
 int fence_comparePoints(LpPhotoPoint p1, LpPhotoPoint p2);
 
 #endif

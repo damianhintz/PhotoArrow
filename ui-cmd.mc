@@ -1,6 +1,6 @@
 #include "cmd.h"
 
-Public cmdName void cmd_photoInit(char* unparsedP) cmdNumber CMD_PHOTOARROW_INIT {
+Public cmdName void cmd_photoInit(char* unparsedP) cmdNumber CMD_PHOTOARROW_START {
     mdlLogger_info("photoarrow: START");
     command_loadPhotoPointsFromFence();
     mdlLogger_info("photoarrow: END");

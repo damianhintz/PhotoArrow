@@ -18,6 +18,8 @@
 #define C_HK_PDM_Plik 2
 #define C_TX_PDM_Exit "Exit"
 #define C_HK_PDM_Exit 3
+#define C_TX_PDM_Start "Start"
+#define C_HK_PDM_Start 4
 #define C_TX_PDM_ "-"
 
 #endif

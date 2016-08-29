@@ -1,6 +1,6 @@
 #include "fenceReader.h"
 
-void fence_init(LpFenceReader thisP) {
+void fenceReader_init(LpFenceReader thisP) {
     if (thisP == NULL) return;
     thisP->maxCount = 0;
     thisP->masterCount = 0;
@@ -13,7 +13,7 @@ void fence_init(LpFenceReader thisP) {
     thisP->endPointsCount = 0;
 }
 
-void fence_free(LpFenceReader thisP) {
+void fenceReader_free(LpFenceReader thisP) {
     if (thisP == NULL) return;
     if (thisP->startPoints != NULL) {
         free(thisP->startPoints);
@@ -25,7 +25,7 @@ void fence_free(LpFenceReader thisP) {
     }
 }
 
-void fence_summary(LpFenceReader thisP) {
+void fenceReader_summary(LpFenceReader thisP) {
     char msg[256];
     if (thisP == NULL) return;
     sprintf(msg, "master elements: %d count", thisP->masterCount);
@@ -38,7 +38,7 @@ void fence_summary(LpFenceReader thisP) {
     mdlLogger_info(msg);
 }
 
-int fence_count(LpFenceReader thisP) {
+int fenceReader_count(LpFenceReader thisP) {
     mdlLogger_info("fenceReader: counting ref elements");
     //init fence
     mdlFence_fromUniverse(tcb->lstvw); //remember to set fence
@@ -68,7 +68,7 @@ int fence_countRefElement(LpFenceReader thisP) {
     return SUCCESS;
 }
 
-int fence_load(LpFenceReader thisP) {
+int fenceReader_load(LpFenceReader thisP) {
     mdlLogger_info("fenceReader: loading ref elements");
     //init fence
     thisP->startPoints = (PhotoPoint*) calloc(thisP->maxCount, sizeof (PhotoPoint));
@@ -83,7 +83,7 @@ int fence_load(LpFenceReader thisP) {
     mdlFence_process(thisP);
     mdlFence_clear(FALSE);
     fence_sort(thisP);
-    fence_summary(thisP);
+    //fence_summary(thisP);
     return TRUE;
 }
 
@@ -136,7 +136,40 @@ void fence_parseMaster(LpFenceReader thisP, MSElementDescr* edP, ModelNumber fil
     thisP->masterCount++;
 }
 
+int fenceReader_searchStartName(LpFenceReader thisP, char* photoName, Dpoint3d* foundP) {
+    PhotoPoint point;
+    PhotoPoint* foundPoint = NULL;
+    if (thisP == NULL) return FALSE;
+    if (photoName == NULL) return FALSE;
+    strncpy(point.name, photoName, MAX_PHOTO_NAME);
+    foundPoint = fenceReader_binarySearch(&point, thisP->startPoints, thisP->startPointsCount);
+    if (foundPoint != NULL && foundP != NULL) *foundP = foundPoint->point;
+    return foundPoint != NULL;
+}
+
+int fenceReader_searchEndName(LpFenceReader thisP, char* photoName, DPoint3d* foundP) {
+    PhotoPoint point;
+    PhotoPoint* foundPoint = NULL;
+    if (thisP == NULL) return FALSE;
+    if (photoName == NULL) return FALSE;
+    strncpy(point.name, photoName, MAX_PHOTO_NAME);
+    foundPoint = fenceReader_binarySearch(&point, thisP->endPoints, thisP->endPointsCount);
+    if (foundPoint != NULL && foundP != NULL) *foundP = foundPoint->point;
+    return foundPoint != NULL;
+}
+
+PhotoPoint* fenceReader_binarySearch(PhotoPoint* key, PhotoPoint* points, long count) {
+    //void* bsearch (void *key, void *base, size_t members, size_t sizeMember, int (*compareFunc)(void *, void *))
+    PhotoPoint* result = bsearch(key, points, count, sizeof (PhotoPoint), fenceReader_comparePhotos);
+    return result;
+}
+
+int fenceReader_comparePhotos(LpPhotoPoint p1, LpPhotoPoint p2) {
+    return strcmp(p1->name, p2->name);
+}
+
 void fence_sort(LpFenceReader thisP) {
+    if (thisP == NULL) return;
     //void mdlUtil_quickSort(void* pFirst, int numEntries, int elementSize, MdlFunctionP compareFunc)
     mdlUtil_quickSort(thisP->startPoints, thisP->startPointsCount, sizeof (PhotoPoint), fence_comparePoints);
     mdlUtil_quickSort(thisP->endPoints, thisP->endPointsCount, sizeof (PhotoPoint), fence_comparePoints);

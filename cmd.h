@@ -19,12 +19,13 @@
 #include <msdialog.fdf>
 #include <msparse.fdf>
 #include "main.h"
+#include "photoReader.h"
 #include "fenceReader.h"
 #include "arrowBuilder.h"
 #include "ui.h"
 #include "ui-cmd.h"
 
-void command_loadPhotoPointsFromFence();
+int command_loadPhotoPointsFromFence();
 void command_loadArrowsFromFile();
 
 void appConfig_setScale(int scale);

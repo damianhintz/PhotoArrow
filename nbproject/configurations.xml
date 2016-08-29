@@ -12,6 +12,7 @@
       <itemPath>def-v8.h</itemPath>
       <itemPath>fenceReader.h</itemPath>
       <itemPath>main.h</itemPath>
+      <itemPath>photoReader.h</itemPath>
       <itemPath>ui-cmd.h</itemPath>
       <itemPath>ui-txt.h</itemPath>
       <itemPath>ui.h</itemPath>
@@ -55,6 +56,7 @@
       <itemPath>cmd.mc</itemPath>
       <itemPath>fenceReader.mc</itemPath>
       <itemPath>main.mc</itemPath>
+      <itemPath>photoReader.mc</itemPath>
       <itemPath>ui-cmd.mc</itemPath>
       <itemPath>ui.mc</itemPath>
     </logicalFolder>
@@ -162,6 +164,10 @@
       </item>
       <item path="main.mc" ex="false" tool="0" flavor2="0">
       </item>
+      <item path="photoReader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="photoReader.mc" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="ui-cmd.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ui-cmd.mc" ex="false" tool="0" flavor2="0">
@@ -266,6 +272,10 @@
       <item path="main.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.mc" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="photoReader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="photoReader.mc" ex="false" tool="0" flavor2="0">
       </item>
       <item path="ui-cmd.h" ex="false" tool="3" flavor2="0">
       </item>

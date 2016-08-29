@@ -33,11 +33,27 @@ Private void exitHook(DialogItemMessage *dimP) {
     }
 }
 
+Private void startHook(DialogItemMessage *dimP) {
+    dimP->msgUnderstood = TRUE;
+    switch (dimP->messageType) {
+        case DITEM_MESSAGE_BUTTON:
+            if (dimP->u.button.buttonTrans != BUTTONTRANS_UP) break;
+            mdlLogger_info("photoarrow: START");
+            command_loadPhotoPointsFromFence();
+            mdlLogger_info("photoarrow: END");
+            break;
+        default:
+            dimP->msgUnderstood = FALSE;
+            break;
+    }
+}
+
 /* hooks array */
 Private DialogHookInfo uHooks[] = {
     //Menu
     {C_HK_DLG_Main, mainHook},
     //File
+    {C_HK_PDM_Start, startHook},
     {C_HK_PDM_Exit, exitHook},
 };
 

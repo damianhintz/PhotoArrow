@@ -30,6 +30,10 @@ DItem_PulldownMenuRsc C_ID_PDM_Plik =
     C_HK_PDM_Plik,
     ON, C_TX_PDM_Plik,
     {
+        {C_TX_PDM_Start, 'S'|VBIT_CTRL, ON, NOMARK, 0, 0,
+            NOHELP, OHELPTASKIDCMD,
+            C_HK_PDM_Start, NOHOOK,
+            NOCMD, OTASKID, ""},
         {C_TX_PDM_Exit, 'X'|VBIT_CTRL, ON, NOMARK, 0, 0,
             NOHELP, OHELPTASKIDCMD,
             C_HK_PDM_Exit, NOHOOK,

@@ -1,31 +1,39 @@
 #include "cmd.h"
 
-void command_loadPhotoPointsFromFence() {
+int command_loadPhotoPointsFromFence() {
+    PhotoReader photos;
     FenceReader reader;
-    //int photos;
     ArrowBuilder builder;
-    fence_init(&reader);
-    fence_count(&reader);
-    fence_load(&reader);
-    //sprintf(_msg, "photoarrow: %d master, %d ref", fence.masterCount, fence.refCount);
-    //mdlLogger_info(_msg);
+    //load photos
+    photoReader_init(&photos);
+    if (!photoReader_findPhotos(&photos, "DOKUMENTACJA_FOTOGRAFICZNA")) {
+        mdlDialog_openAlert(
+                "Brak pliku katalogu DOKUMENTACJA_FOTOGRAFICZNA lub nic nie zawiera (*.jpg). "
+                "Program zostanie przerwany!");
+        return FALSE;
+    };
+    photoReader_summary(&photos);
+    //load fence
+    fenceReader_init(&reader);
+    fenceReader_count(&reader);
+    fenceReader_load(&reader);
+    fenceReader_summary(&reader);
     if (reader.refCount == 0) {
         mdlDialog_openAlert(
                 "Brak pliku referencyjnego lub nie zawiera on widocznych danych. "
                 "Program zostanie przerwany. Attach reference file or display it!");
-        return;
+        return FALSE;
     }
-    //photos = photoReader_findPhotos();
-    //sprintf(_msg, "%d photo files", photos);
-    //mdlLogger_info(_msg);
+    //build arrows
     arrowBuilder_init(&builder, &reader);
-    arrowBuilder_load(&builder, &reader);
-    arrowBuilder_summary(&builder);
+    arrowBuilder_load(&builder, &photos, &reader);
     arrowWriter_saveAll(&builder);
+    arrowBuilder_summary(&builder);
     //free resources
     arrowBuilder_free(&builder);
-    fence_free(&reader);
-    return;
+    fenceReader_free(&reader);
+    photoReader_free(&photos);
+    return TRUE;
 }
 
 void command_loadArrowsFromFile() {
