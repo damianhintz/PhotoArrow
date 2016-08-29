@@ -35,8 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/app.o \
 	${OBJECTDIR}/app/appView.o \
-	${OBJECTDIR}/app/mdlApp.o \
 	${OBJECTDIR}/app/mdlLogger.o \
 	${OBJECTDIR}/app/mdlUtil.o \
 	${OBJECTDIR}/arrowBuilder.o \
@@ -79,15 +79,15 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/photoarrow.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/photoarrow ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/app.o: app.mc 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/app.o app.mc
+
 ${OBJECTDIR}/app/appView.o: app/appView.mc 
 	${MKDIR} -p ${OBJECTDIR}/app
 	${RM} "$@.d"
 	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/app/appView.o app/appView.mc
-
-${OBJECTDIR}/app/mdlApp.o: app/mdlApp.mc 
-	${MKDIR} -p ${OBJECTDIR}/app
-	${RM} "$@.d"
-	$(COMPILE.c) -g -I/C/win32app/ustation/mdl/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/app/mdlApp.o app/mdlApp.mc
 
 ${OBJECTDIR}/app/mdlLogger.o: app/mdlLogger.mc 
 	${MKDIR} -p ${OBJECTDIR}/app

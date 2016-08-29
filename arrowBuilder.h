@@ -7,7 +7,6 @@
 
 #ifndef ARROWBUILDER_H
 #define ARROWBUILDER_H
-#include <math.h>
 #include "app.h"
 #include "fenceReader.h"
 

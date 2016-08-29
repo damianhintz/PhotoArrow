@@ -1,5 +1,5 @@
 #include "ui.h"
-#include "main.h"
+#include "cmd.h"
 
 DialogBox* getMainDialog() {
     return mdlDialog_find(C_ID_DLG_Main, NULL);

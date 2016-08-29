@@ -25,7 +25,9 @@ PhotoArrow arrow minLength 1
 ** Zmiany (historia)
 Do zrobienia
 * podręcznik użytkownika
-* raport z podsumowaniem do pliku
+* dwujęzyczna kompilacja (polski i angielski)
+* zmiana warstw (7 i 47)
+* raport z brakujących zdjęć do pliku
 
 2016-08-22 v1.0-beta
 * pierwsza wersja programu

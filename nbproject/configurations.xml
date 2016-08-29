@@ -4,7 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>app-ver.h</itemPath>
       <itemPath>app.h</itemPath>
       <itemPath>arrowBuilder.h</itemPath>
       <itemPath>cmd.h</itemPath>
@@ -14,7 +13,6 @@
       <itemPath>main.h</itemPath>
       <itemPath>photoReader.h</itemPath>
       <itemPath>ui-cmd.h</itemPath>
-      <itemPath>ui-txt.h</itemPath>
       <itemPath>ui.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -29,8 +27,6 @@
       <logicalFolder name="f2" displayName="app" projectFiles="true">
         <itemPath>app/appView.h</itemPath>
         <itemPath>app/appView.mc</itemPath>
-        <itemPath>app/mdlApp.h</itemPath>
-        <itemPath>app/mdlApp.mc</itemPath>
         <itemPath>app/mdlLogger.h</itemPath>
         <itemPath>app/mdlLogger.mc</itemPath>
         <itemPath>app/mdlUtil.h</itemPath>
@@ -52,6 +48,7 @@
         <itemPath>core/mdlText.h</itemPath>
         <itemPath>core/mdlText.mc</itemPath>
       </logicalFolder>
+      <itemPath>app.mc</itemPath>
       <itemPath>arrowBuilder.mc</itemPath>
       <itemPath>cmd.mc</itemPath>
       <itemPath>fenceReader.mc</itemPath>
@@ -96,17 +93,13 @@
       </compileType>
       <item path="README.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="app-ver.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="app.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="app.mc" ex="false" tool="0" flavor2="0">
       </item>
       <item path="app/appView.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="app/appView.mc" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="app/mdlApp.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="app/mdlApp.mc" ex="false" tool="0" flavor2="0">
       </item>
       <item path="app/mdlLogger.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -173,8 +166,6 @@
       <item path="ui-cmd.mc" ex="false" tool="0" flavor2="0">
       </item>
       <item path="ui-cmd.r" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ui-txt.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ui.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -205,17 +196,13 @@
       </compileType>
       <item path="README.txt" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="app-ver.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="app.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="app.mc" ex="false" tool="0" flavor2="0">
       </item>
       <item path="app/appView.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="app/appView.mc" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="app/mdlApp.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="app/mdlApp.mc" ex="false" tool="0" flavor2="0">
       </item>
       <item path="app/mdlLogger.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -282,8 +269,6 @@
       <item path="ui-cmd.mc" ex="false" tool="0" flavor2="0">
       </item>
       <item path="ui-cmd.r" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ui-txt.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ui.h" ex="false" tool="3" flavor2="0">
       </item>

@@ -42,10 +42,10 @@ Public cmdName void cmd_photoReferences(char* unparsedP) cmdNumber CMD_PHOTOARRO
     return;
 }
 
-void appConfig_setScale(int scale) {
+void command_configScale(int scale) {
     //_precyzja = precyzja;
 }
 
-void appConfig_setLevel(int level) {
+void command_configLevel(int level) {
 
 }

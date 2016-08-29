@@ -8,7 +8,7 @@ int command_loadPhotoPointsFromFence() {
     photoReader_init(&photos);
     if (!photoReader_findPhotos(&photos, "DOKUMENTACJA_FOTOGRAFICZNA")) {
         mdlDialog_openAlert(
-                "Brak pliku katalogu DOKUMENTACJA_FOTOGRAFICZNA lub nic nie zawiera (*.jpg). "
+                "Brak katalogu DOKUMENTACJA_FOTOGRAFICZNA lub nic nie zawiera (*.jpg). "
                 "Program zostanie przerwany!");
         return FALSE;
     };
@@ -21,7 +21,7 @@ int command_loadPhotoPointsFromFence() {
     if (reader.refCount == 0) {
         mdlDialog_openAlert(
                 "Brak pliku referencyjnego lub nie zawiera on widocznych danych. "
-                "Program zostanie przerwany. Attach reference file or display it!");
+                "Program zostanie przerwany!");
         return FALSE;
     }
     //build arrows

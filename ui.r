@@ -1,9 +1,4 @@
-#include <rscdefs.h>
-#include <cmdclass.h>
-#include <dlogbox.h>
-#include <dlogids.h>
-#include <keys.h>
-#include "ui-txt.h"
+#include "ui.h"
 
 DialogBoxRsc C_ID_DLG_Main =
 {
@@ -23,6 +18,7 @@ DItem_MenuBarRsc C_ID_MNB_Main =
         { PulldownMenu, C_ID_PDM_Plik },
     }
 };
+
 
 DItem_PulldownMenuRsc C_ID_PDM_Plik =
 {

@@ -27,10 +27,8 @@
 
 int command_loadPhotoPointsFromFence();
 void command_loadArrowsFromFile();
-
-void appConfig_setScale(int scale);
-void appConfig_setLevel(int level);
-//int getRefCount();
+void command_configScale(int scale);
+void command_configLevel(int level);
 
 #endif /* CMD_H */
 

@@ -1,6 +1,4 @@
-#include "..\app-ver.h"
-#include "mdlApp.h"
-#include "mdlUtil.h"
+#include "app.h"
 
 char g_appPath[MAXFILELENGTH];
 char g_appDir[MAXDIRLENGTH];
@@ -12,10 +10,10 @@ char g_devName[MAXNAMELENGTH];
 int mdlApp_setNumber() {
     VersionNumber versionNumber;
 
-    versionNumber.release = C_ID_RELEASE;
-    versionNumber.major = C_ID_MAJOR;
-    versionNumber.minor = C_ID_MINOR;
-    versionNumber.subMinor = C_ID_SUBMINOR;
+    //versionNumber.release = C_ID_RELEASE;
+    //versionNumber.major = C_ID_MAJOR;
+    //versionNumber.minor = C_ID_MINOR;
+    //versionNumber.subMinor = C_ID_SUBMINOR;
 
 #if MSVERSION >= 0x790
     mdlSystem_setMdlAppVersionNumber(NULL, &versionNumber);

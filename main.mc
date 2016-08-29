@@ -6,7 +6,6 @@
  */
 
 #include "main.h"
-#include "ui-txt.h"
 #include "ui.h"
 
 int main(int argc, char** argv) {
