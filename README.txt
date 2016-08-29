@@ -28,6 +28,8 @@ Do zrobienia
 * dwujęzyczna kompilacja (polski i angielski)
 * zmiana warstw (7 i 47)
 * raport z brakujących zdjęć do pliku
+* autoread config file
+* reread config file command
 
 2016-08-22 v1.0-beta
 * pierwsza wersja programu

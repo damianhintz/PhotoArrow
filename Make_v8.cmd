@@ -40,8 +40,10 @@
 
 @echo Autoinstall mdl
 @if not exist build mkdir build
+@if not exist build\v8 mkdir build\v8
 @if exist %name%.ma copy /Y %name%.ma %MS%\mdlapps\%name%.ma
-@if exist %name%.ma move /Y %name%.ma build\%name%.ma
+@if exist %name%.ma move /Y %name%.ma build\v8\%name%.ma
+@if exist %name%.config @copy /Y %name%.config build\v8\%name%.config
 
 @echo Removing temporary files
 @for /R %%f in (*.mo) do @del "%%f"

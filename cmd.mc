@@ -168,3 +168,11 @@ int mdlSelection_addKierunek(ModelNumber fileNum, ULong filePos) {
     mdlElmdscr_freeAll(&edP);
     return TRUE;
 }
+
+void command_configScale(int scale) {
+    //_precyzja = precyzja;
+}
+
+void command_configLevel(int level) {
+
+}

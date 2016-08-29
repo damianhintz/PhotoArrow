@@ -70,6 +70,7 @@
       <itemPath>Make_v8.cmd</itemPath>
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>PhotoArrow.config</itemPath>
     <itemPath>README.txt</itemPath>
   </logicalFolder>
   <sourceRootList>
@@ -91,6 +92,8 @@
           </incDir>
         </cTool>
       </compileType>
+      <item path="PhotoArrow.config" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="README.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="app.h" ex="false" tool="3" flavor2="0">
@@ -194,6 +197,8 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="PhotoArrow.config" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="README.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="app.h" ex="false" tool="3" flavor2="0">

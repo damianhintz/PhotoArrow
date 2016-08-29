@@ -7,13 +7,13 @@ Public cmdName void cmd_photoInit(char* unparsedP) cmdNumber CMD_PHOTOARROW_STAR
     return;
 }
 
-Public cmdName void cmd_photoHelp(char* unparsedP) cmdNumber CMD_PHOTOARROW_HELP {
+Public cmdName void cmd_photoHelp(char* unparsedP) cmdNumber CMD_PHOTOARROW_PHOTO_SUBDIR {
     mdlLogger_info("photoarrow help/about");
     mdlLogger_info("photoarrow v1.0-beta");
     return;
 }
 
-Public cmdName void cmd_photoConfigScale(char* unparsedP) cmdNumber CMD_PHOTOARROW_CONFIG_SCALE {
+Public cmdName void cmd_photoConfigScale(char* unparsedP) cmdNumber CMD_PHOTOARROW_ARROW_COLOR {
     int scale = -1;
     if (1 != sscanf(unparsedP, "%d", &scale)) {
         mdlLogger_info("photoarrow config scale {percent}");
@@ -23,7 +23,7 @@ Public cmdName void cmd_photoConfigScale(char* unparsedP) cmdNumber CMD_PHOTOARR
     return;
 }
 
-Public cmdName void cmd_photoConfigLevel(char* unparsedP) cmdNumber CMD_PHOTOARROW_CONFIG_LEVEL {
+Public cmdName void cmd_photoConfigLevel(char* unparsedP) cmdNumber CMD_PHOTOARROW_ARROW_LEVEL {
     int level = -1;
     if (1 != sscanf(unparsedP, "%d", &level)) {
         mdlLogger_info("photoarrow config level {level}");
@@ -40,12 +40,4 @@ Public cmdName void cmd_photoReferences(char* unparsedP) cmdNumber CMD_PHOTOARRO
     //mdlLogger_info(msg);
     command_loadArrowsFromFile();
     return;
-}
-
-void command_configScale(int scale) {
-    //_precyzja = precyzja;
-}
-
-void command_configLevel(int level) {
-
 }
