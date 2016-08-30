@@ -20,6 +20,8 @@ Do zrobienia
 * nowe polecenie do ustawiania warstwy punktu początkowego (photoarrow ref startLevel)
 * nowe polecenie do ustawiania warstwy punktu końcowego (photoarrow ref endLevel)
 * nowe polecenie do odczytywania konfiguracji z pliku PhotoArrow.config (automatycznie wykonywane podczas startu)
+* nowe polecenie do ustawiania podkatalogu zdjęć (photoarrow photo subdir)
+* nowe polecenie do ustawiania typu zdjęć (photoarrow photo ext)
 
 2016-08-22 v1.0-beta
 * pierwsza wersja programu

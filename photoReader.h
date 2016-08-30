@@ -19,7 +19,7 @@ void photoReader_init(LpPhotoReader thisP);
 void photoReader_free(LpPhotoReader thisP);
 void photoReader_summary(LpPhotoReader thisP);
 
-int photoReader_findPhotos(LpPhotoReader thisP, char* subdir);
+int photoReader_findPhotos(LpPhotoReader thisP, char* subdir, char* extPhoto);
 int photoReader_parsePhotoName(LpPhotoReader thisP, int photoIndex, char* photoName);
 
 #endif /* PHOTOREADER_H */

@@ -45,6 +45,8 @@ extern char _appDir[MAXDIRLENGTH];
 extern char _appName[MAXNAMELENGTH];
 extern char _iniPath[MAXFILELENGTH];
 extern char _configPath[MAXFILELENGTH];
+extern char _photoSubdir[MAXFILELENGTH];
+extern char _photoExt[MAXFILELENGTH];
 extern int _refStartLevel;
 extern int _refEndLevel;
 

@@ -18,6 +18,8 @@
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="lang" projectFiles="true">
+      </logicalFolder>
       <itemPath>ui-cmd.r</itemPath>
       <itemPath>ui.r</itemPath>
     </logicalFolder>

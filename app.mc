@@ -6,6 +6,8 @@ char _appName[MAXNAMELENGTH];
 char _iniPath[MAXFILELENGTH];
 char _configPath[MAXFILELENGTH];
 char _devName[MAXNAMELENGTH];
+char _photoSubdir[MAXFILELENGTH];
+char _photoExt[MAXFILELENGTH];
 int _refStartLevel = 7;
 int _refEndLevel = 47;
 

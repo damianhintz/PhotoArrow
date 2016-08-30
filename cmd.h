@@ -28,6 +28,8 @@
 int command_loadFence();
 void command_loadConfig();
 void command_loadArrowsFromFile();
+void command_photoSubdir(char* subdir);
+void command_photoExt(char* ext);
 void command_refStartLevel(int startLevel);
 void command_refEndLevel(int endLevel);
 

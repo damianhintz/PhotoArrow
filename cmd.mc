@@ -6,10 +6,11 @@ int command_loadFence() {
     ArrowBuilder builder;
     //load photos
     photoReader_init(&photos);
-    if (!photoReader_findPhotos(&photos, "DOKUMENTACJA_FOTOGRAFICZNA")) {
-        mdlDialog_openAlert(
-                "Brak katalogu DOKUMENTACJA_FOTOGRAFICZNA lub nic nie zawiera (*.jpg). "
-                "Program zostanie przerwany!");
+    if (!photoReader_findPhotos(&photos, _photoSubdir, _photoExt)) {
+        char msg[256];
+        sprintf(msg, "Brak katalogu %s lub nic nie zawiera (%s). "
+                "Program zostanie przerwany!", _photoSubdir, _photoExt);
+        mdlDialog_openAlert(msg);
         return FALSE;
     };
     photoReader_summary(&photos);
@@ -51,6 +52,22 @@ void command_loadConfig() {
     }
     mdlTextFile_close(file);
     //mdlLogger_info("photoarrow config loaded");
+}
+
+void command_photoSubdir(char* subdir) {
+    char msg[256];
+    if (subdir == NULL) return;
+    strcpy(_photoSubdir, subdir);
+    sprintf(msg, "command_photoSubdir: %s", _photoSubdir);
+    mdlLogger_info(msg);
+}
+
+void command_photoExt(char* ext) {
+    char msg[256];
+    if (ext == NULL) return;
+    strcpy(_photoExt, ext);
+    sprintf(msg, "command_photoExt: %s", _photoExt);
+    mdlLogger_info(msg);
 }
 
 void command_refStartLevel(int startLevel) {

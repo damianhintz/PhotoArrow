@@ -12,30 +12,40 @@ Public cmdName void cmd_loadConfig(char* unparsedP) cmdNumber CMD_PHOTOARROW_LOA
     //mdlLogger_info("photoarrow: END");
 }
 
-Public cmdName void cmd_photoHelp(char* unparsedP) cmdNumber CMD_PHOTOARROW_PHOTO_SUBDIR {
-    char subdir[256];
-    if (1 != sscanf(unparsedP, "%s", subdir)) {
+Public cmdName void cmd_photoSubdir(char* unparsedP) cmdNumber CMD_PHOTOARROW_PHOTO_SUBDIR {
+    char ext[256];
+    if (1 != sscanf(unparsedP, "%s", ext)) {
         mdlLogger_err("photoarrow photo subdir {name}");
         return;
     }
+    command_photoSubdir(ext);
+}
+
+Public cmdName void cmd_photoExt(char* unparsedP) cmdNumber CMD_PHOTOARROW_PHOTO_EXT {
+    char ext[256];
+    if (1 != sscanf(unparsedP, "%s", ext)) {
+        mdlLogger_err("photoarrow photo ext {pattern}");
+        return;
+    }
+    command_photoExt(ext);
 }
 
 Public cmdName void cmd_refStartLevel(char* unparsedP) cmdNumber CMD_PHOTOARROW_REF_STARTLEVEL {
-    int subdir = -1;
-    if (1 != sscanf(unparsedP, "%d", &subdir)) {
+    int ext = -1;
+    if (1 != sscanf(unparsedP, "%d", &ext)) {
         mdlLogger_err("photoarrow ref startLevel {level}");
         return;
     }
-    command_refStartLevel(subdir);
+    command_refStartLevel(ext);
 }
 
 Public cmdName void cmd_refEndLevel(char* unparsedP) cmdNumber CMD_PHOTOARROW_REF_ENDLEVEL {
-    int subdir = -1;
-    if (1 != sscanf(unparsedP, "%d", &subdir)) {
+    int ext = -1;
+    if (1 != sscanf(unparsedP, "%d", &ext)) {
         mdlLogger_err("photoarrow ref endLevel {level}");
         return;
     }
-    command_refEndLevel(subdir);
+    command_refEndLevel(ext);
 }
 
 Public cmdName void cmd_photoConfigScale(char* unparsedP) cmdNumber CMD_PHOTOARROW_ARROW_COLOR {

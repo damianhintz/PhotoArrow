@@ -21,7 +21,7 @@ void photoReader_summary(LpPhotoReader thisP) {
     mdlLogger_info(msg);
 }
 
-int photoReader_findPhotos(LpPhotoReader thisP, char* subdir) {
+int photoReader_findPhotos(LpPhotoReader thisP, char* subdir, char* extPhoto) {
     char photosDirectory[MAXFILELENGTH];
     char dev[MAXDEVICELENGTH];
     char dir[MAXDIRLENGTH];
@@ -30,9 +30,11 @@ int photoReader_findPhotos(LpPhotoReader thisP, char* subdir) {
 
     if (thisP == NULL) return FALSE;
     if (subdir == NULL) return FALSE;
+    if (extPhoto == NULL) return FALSE;
 
     mdlFile_parseName(tcb->dgnfilenm, dev, dir, name, ext);
-    mdlFile_buildName(photosDirectory, dev, dir, subdir, "\\*.jpg");
+    sprintf(ext, "\\%s", extPhoto);
+    mdlFile_buildName(photosDirectory, dev, dir, subdir, ext);
 
     //int mdlFile_findFiles(FindFileInfo** out, int* nFiles, char const* spec, int attributeFilter);
     if (SUCCESS != mdlFile_findFiles(&thisP->files, &thisP->filesCount, photosDirectory, FF_NORMAL)) {
