@@ -20,7 +20,7 @@ int command_loadPhotoPointsFromFence() {
     fenceReader_summary(&reader);
     if (reader.refCount == 0) {
         mdlDialog_openAlert(
-                "Brak pliku referencyjnego lub nie zawiera on widocznych danych. "
+                "Brak pliku referencyjnego, nie zawiera on widocznych danych lub nie ustawiono ogrodzenia. "
                 "Program zostanie przerwany!");
         return FALSE;
     }

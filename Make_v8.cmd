@@ -1,4 +1,4 @@
-@set name=PhotoArrow_v8
+@set name=PhotoArrow
 
 @set MS=c:\win32app\ustation.v8\Program\MicroStation
 @set INCLUDE=%MS%\mdl\include;%INCLUDE%
@@ -38,12 +38,13 @@
 @rem ui-cmd.rsc
 @rem ui-cfg.rsc
 
-@echo Autoinstall mdl
+@echo Build and autoinstall mdl
 @if not exist build mkdir build
 @if not exist build\v8 mkdir build\v8
 @if exist %name%.ma copy /Y %name%.ma %MS%\mdlapps\%name%.ma
 @if exist %name%.ma move /Y %name%.ma build\v8\%name%.ma
 @if exist %name%.config @copy /Y %name%.config build\v8\%name%.config
+@if exist README.txt @copy /Y README.txt build\v7\README.txt
 
 @echo Removing temporary files
 @for /R %%f in (*.mo) do @del "%%f"

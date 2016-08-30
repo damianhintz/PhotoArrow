@@ -35,12 +35,14 @@
 @echo Linking
 @mlink @mlink.txt
 @rlib -fwinNT -o%name%.ma %name%.mp ui.rsc ui-cmd.rsc
-@echo Autoinstall mdl
+
+@echo Build and autoinstall mdl
 @if not exist build mkdir build
 @if not exist build\v7 mkdir build\v7
 @if exist %name%.ma @copy /Y %name%.ma %MS%\mdlapps\%name%.ma
 @if exist %name%.ma @move /Y %name%.ma build\v7\%name%.ma
 @if exist %name%.config @copy /Y %name%.config build\v7\%name%.config
+@if exist README.txt @copy /Y README.txt build\v7\README.txt
 
 @for /R %%f in (*.mo) do @del "%%f"
 @for %%f in (*.rsc) do @del %%f

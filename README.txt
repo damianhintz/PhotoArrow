@@ -1,5 +1,5 @@
-PhotoArrow v1.0-beta - Strzałki dla kierunku zdjęć
-Data publikacji: 29 sierpnia 2016
+PhotoArrow v1.1-beta - Generowanie strzałek dla kierunków zdjęć
+Data publikacji: 30 sierpnia 2016
 
 Nowe funkcje
 
@@ -30,6 +30,9 @@ Do zrobienia
 * raport z brakujących zdjęć do pliku
 * autoread config file
 * reread config file command
+
+2016-08-30 v1.1-beta
+* wybór obszaru ogrodzenia przez użytkownika
 
 2016-08-22 v1.0-beta
 * pierwsza wersja programu

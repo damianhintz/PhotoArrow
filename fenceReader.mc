@@ -5,10 +5,8 @@ void fenceReader_init(LpFenceReader thisP) {
     thisP->maxCount = 0;
     thisP->masterCount = 0;
     thisP->refCount = 0;
-    //this->startPoints = (PhotoPoint*) calloc(MAX_POINTS, sizeof (PhotoPoint));
     thisP->startPoints = NULL;
     thisP->startPointsCount = 0;
-    //this->endPoints = (PhotoPoint*) calloc(MAX_POINTS, sizeof (PhotoPoint));
     thisP->endPoints = NULL;
     thisP->endPointsCount = 0;
 }
@@ -39,9 +37,9 @@ void fenceReader_summary(LpFenceReader thisP) {
 }
 
 int fenceReader_count(LpFenceReader thisP) {
-    mdlLogger_info("fenceReader: counting ref elements");
+    //mdlLogger_info("fenceReader: counting ref elements");
     //init fence
-    mdlFence_fromUniverse(tcb->lstvw); //remember to set fence
+    //mdlFence_fromUniverse(tcb->lstvw); //remember to set fence
     mdlState_startFenceCommand(fence_countRefElement, NULL, NULL, NULL, 0, 0, FENCE_NO_CLIP);
     mdlLocate_init();
     mdlLocate_allowLocked(); //ref too
@@ -49,9 +47,7 @@ int fenceReader_count(LpFenceReader thisP) {
     mdlSelect_freeAll();
     //selection
     mdlFence_process(thisP);
-    mdlFence_clear(FALSE);
-    //fence_sort(this);
-    //fence_summary(thisP);
+    //mdlFence_clear(FALSE);
     return TRUE;
 }
 
@@ -69,11 +65,11 @@ int fence_countRefElement(LpFenceReader thisP) {
 }
 
 int fenceReader_load(LpFenceReader thisP) {
-    mdlLogger_info("fenceReader: loading ref elements");
+    mdlLogger_info("fenceReader: loading ref elements from user fence");
     //init fence
     thisP->startPoints = (PhotoPoint*) calloc(thisP->maxCount, sizeof (PhotoPoint));
     thisP->endPoints = (PhotoPoint*) calloc(thisP->maxCount, sizeof (PhotoPoint));
-    mdlFence_fromUniverse(tcb->lstvw); //remember to set fence
+    //mdlFence_fromUniverse(tcb->lstvw); //remember to set fence
     mdlState_startFenceCommand(fence_selectCurrentRefElement, NULL, NULL, NULL, 0, 0, FENCE_NO_CLIP);
     mdlLocate_init();
     mdlLocate_allowLocked(); //ref too
@@ -81,7 +77,7 @@ int fenceReader_load(LpFenceReader thisP) {
     mdlSelect_freeAll();
     //selection
     mdlFence_process(thisP);
-    mdlFence_clear(FALSE);
+    //mdlFence_clear(FALSE);
     fence_sort(thisP);
     //fence_summary(thisP);
     return TRUE;

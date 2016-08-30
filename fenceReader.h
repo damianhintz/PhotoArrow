@@ -15,8 +15,8 @@
 #include <mselemen.fdf>
 //mdlElement_getFilePos
 #include "def-v8.h"
-#include "core.h"
 #include "app.h"
+#include "core.h"
 #include "photoReader.h"
 
 typedef struct _photoPoint {
