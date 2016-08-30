@@ -13,14 +13,13 @@ Do zrobienia
 * podręcznik użytkownika
 * dwujęzyczna kompilacja (polski i angielski)
 * raport z brakujących zdjęć do pliku
-* autoread config file
-* reread config file command
 
 2016-08-30 v1.1-beta
 * wybór obszaru ogrodzenia przez użytkownika
 * zmiana domyślnych warstw kierunku zdjęć na 7 i 47
 * nowe polecenie do ustawiania warstwy punktu początkowego (photoarrow ref startLevel)
 * nowe polecenie do ustawiania warstwy punktu końcowego (photoarrow ref endLevel)
+* nowe polecenie do odczytywania konfiguracji z pliku PhotoArrow.config (automatycznie wykonywane podczas startu)
 
 2016-08-22 v1.0-beta
 * pierwsza wersja programu

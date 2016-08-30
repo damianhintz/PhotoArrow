@@ -9,15 +9,9 @@
 #include "ui.h"
 
 int main(int argc, char** argv) {
-    char fileName[MAXFILELENGTH];
-    char mdlDir[MAXDIRLENGTH];
-
-    mdlApp_setPath(argv[0]);
-    mdlApp_getFileAndMdl(fileName, mdlDir);
-    mdlApp_setNumber();
-
-    loadCui();
-    if (argc < 3) loadGui();
-
+    app_setPath(argv[0]);
+    app_loadCui();
+    if (argc < 3) app_loadGui();
+    command_loadConfig();
     return (EXIT_SUCCESS);
 }

@@ -44,20 +44,15 @@ extern char _appPath[MAXFILELENGTH];
 extern char _appDir[MAXDIRLENGTH];
 extern char _appName[MAXNAMELENGTH];
 extern char _iniPath[MAXFILELENGTH];
+extern char _configPath[MAXFILELENGTH];
 extern int _refStartLevel;
 extern int _refEndLevel;
 
-int loadGui();
-int loadCui();
-
-int mdlApp_setNumber ();
-int mdlApp_getFileAndMdl (char* fileName, char* mdlDir);
-int mdlApp_setPath    (char* appPath);
-int mdlApp_getIniPath (char* iniPath);
-int mdlApp_getExtPath (char* extPath, char* extP);
-
-void mdlApp_setOpis  (DialogBox* dbP, char* opis);
-void mdlApp_setOpis2 (DialogBox* dbP, char* opis, int id);
-void mdlApp_setTitle (DialogBox* dbP);
+int app_loadGui();
+int app_loadCui();
+void app_setPath(char* appPath);
+int mdlApp_getIniPath(char* iniPath);
+int mdlApp_getExtPath(char* extPath, char* extP);
+int mdlApp_getFileAndMdl(char* fileName, char* mdlDir);
 
 #endif

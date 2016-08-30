@@ -57,7 +57,7 @@ Private DialogHookInfo uHooks[] = {
     {C_HK_PDM_Exit, exitHook},
 };
 
-int loadGui() {
+int app_loadGui() {
     char *setP;
     RscFileHandle rscFileH;
     DialogBox *dbP;
@@ -72,7 +72,7 @@ int loadGui() {
     return TRUE;
 }
 
-int loadCui() {
+int app_loadCui() {
     if (mdlParse_loadCommandTable(NULL) == NULL) {
         mdlLogger_info("loadCui: command table is missing");
         return FALSE;

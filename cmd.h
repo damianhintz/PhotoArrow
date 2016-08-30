@@ -26,6 +26,7 @@
 #include "ui-cmd.h"
 
 int command_loadFence();
+void command_loadConfig();
 void command_loadArrowsFromFile();
 void command_refStartLevel(int startLevel);
 void command_refEndLevel(int endLevel);

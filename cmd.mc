@@ -36,14 +36,35 @@ int command_loadFence() {
     return TRUE;
 }
 
+void command_loadConfig() {
+    char row[256];
+    FILE* file;
+    //mdlLogger_info("photoarrow config load");
+    mdlLogger_info(_configPath);
+    file = mdlTextFile_open(_configPath, TEXTFILE_READ);
+    if (file == NULL) return;
+    while (NULL != mdlTextFile_getString(row, 256, file, TEXTFILE_DEFAULT)) {
+        if (strncmp(row, "#", 1) == 0) continue; //skip keyin
+        //void mdlInput_sendKeyin(char* stringP, int literal, int position, char* taskIdP);
+        mdlInput_sendKeyin(row, 0, 0, NULL);
+        //mdlLogger_info(row);
+    }
+    mdlTextFile_close(file);
+    //mdlLogger_info("photoarrow config loaded");
+}
+
 void command_refStartLevel(int startLevel) {
+    char msg[256];
     _refStartLevel = startLevel;
-    //mdlLogger_info("command_refStartLevel: not implemented");
+    sprintf(msg, "command_refStartLevel: %d", _refStartLevel);
+    mdlLogger_info(msg);
 }
 
 void command_refEndLevel(int endLevel) {
+    char msg[256];
     _refEndLevel = endLevel;
-    //mdlLogger_info("command_refEndLevel: not implemented");
+    sprintf(msg, "command_refEndLevel: %d", _refEndLevel);
+    mdlLogger_info(msg);
 }
 
 void command_loadArrowsFromFile() {
@@ -70,6 +91,7 @@ void command_loadArrowsFromFile() {
         if (SUCCESS != mdlLine_create(&lineP, NULL, p)) continue;
         mdlElement_add(&lineP);
     }
+    mdlTextFile_close(file);
     mdlLogger_info("photoarrow: loadArrowsFromFile end");
 }
 

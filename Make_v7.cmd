@@ -40,6 +40,7 @@
 @if not exist build mkdir build
 @if not exist build\v7 mkdir build\v7
 @if exist %name%.ma @copy /Y %name%.ma %MS%\mdlapps\%name%.ma
+@if exist %name%.config @copy /Y %name%.config %MS%\mdlapps\%name%.config
 @if exist %name%.ma @move /Y %name%.ma build\v7\%name%.ma
 @if exist %name%.config @copy /Y %name%.config build\v7\%name%.config
 @if exist README.txt @copy /Y README.txt build\v7\README.txt
