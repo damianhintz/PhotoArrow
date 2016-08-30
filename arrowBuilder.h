@@ -23,6 +23,7 @@ typedef struct _arrowBuilder {
     int allCount;
     int missingArrows;
     int missingPhotos;
+    int duplicateArrows;
 } ArrowBuilder, *LpArrowBuilder;
 
 void arrowBuilder_init(LpArrowBuilder thisP, LpFenceReader readerP);

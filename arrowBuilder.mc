@@ -12,6 +12,7 @@ void arrowBuilder_init(LpArrowBuilder thisP, LpFenceReader readerP) {
     thisP->allCount = 0;
     thisP->missingArrows = 0;
     thisP->missingPhotos = 0;
+    thisP->duplicateArrows = 0;
 }
 
 void arrowBuilder_free(LpArrowBuilder thisP) {
@@ -25,6 +26,8 @@ void arrowBuilder_summary(LpArrowBuilder thisP) {
     mdlLogger_info(msg);
     sprintf(msg, "arrowWriter: %d missing arrow[s], %d missing photo file[s]",
             thisP->missingArrows, thisP->missingPhotos);
+    mdlLogger_info(msg);
+    sprintf(msg, "arrowWriter: %d duplicate arrow[s]", thisP->duplicateArrows);
     mdlLogger_info(msg);
 }
 
@@ -85,7 +88,16 @@ void arrowBuilder_createArrows(LpArrowBuilder thisP, LpPhotoReader photosP, LpFe
         sprintf(msg, "arrowBuilder: missing photo file %s", pointP->name);
         mdlLogger_err(msg);
     }
-    //Search for missing photos by arrow end point
+    //Search for duplicate arrows
+    for (i = 1; i < readerP->startPointsCount; i++) {
+        char msg[256];
+        PhotoPoint* firstP = &readerP->startPoints[i - 1];
+        PhotoPoint* secondP = &readerP->startPoints[i];
+        if (strcmp(firstP->name, secondP->name) != 0) continue;
+        thisP->duplicateArrows++;
+        sprintf(msg, "arrowBuilder: duplicate arrow %s", firstP->name);
+        mdlLogger_err(msg);
+    }
 }
 
 void arrowWriter_saveAll(LpArrowBuilder thisP) {
