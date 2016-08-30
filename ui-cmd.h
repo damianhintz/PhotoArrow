@@ -8,10 +8,10 @@
 #define CMD_PHOTOARROW_REF_STARTLEVEL           0x01020200  /* class 0 */ 
 #define CMD_PHOTOARROW_REF_ENDLEVEL             0x01020300  /* class 0 */ 
 #define CMD_PHOTOARROW_ARROW                    0x01030000  /* class 0 */ 
-#define CMD_PHOTOARROW_ARROW_SIZE               0x01030100  /* class 0 */ 
+#define CMD_PHOTOARROW_ARROW_LEVEL              0x01030100  /* class 0 */ 
 #define CMD_PHOTOARROW_ARROW_FONT               0x01030200  /* class 0 */ 
 #define CMD_PHOTOARROW_ARROW_COLOR              0x01030300  /* class 0 */ 
-#define CMD_PHOTOARROW_ARROW_LEVEL              0x01030400  /* class 0 */ 
+#define CMD_PHOTOARROW_ARROW_TEXTSIZE           0x01030400  /* class 0 */ 
 #define CMD_PHOTOARROW_LOAD                     0x01040000  /* class 0 */ 
 #define CMD_PHOTOARROW_LOAD_CONFIG              0x01040100  /* class 0 */ 
 #define CMD_PHOTOARROW_LOAD_ARROWS              0x01040200  /* class 0 */ 

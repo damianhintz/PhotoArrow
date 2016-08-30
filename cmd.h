@@ -32,6 +32,10 @@ void command_photoSubdir(char* subdir);
 void command_photoExt(char* ext);
 void command_refStartLevel(int startLevel);
 void command_refEndLevel(int endLevel);
+void command_arrowLevel(int level);
+void command_arrowFont(int font);
+void command_arrowColor(int color);
+void command_arrowTextSize(double size);
 
 #endif /* CMD_H */
 

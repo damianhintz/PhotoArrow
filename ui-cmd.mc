@@ -48,20 +48,40 @@ Public cmdName void cmd_refEndLevel(char* unparsedP) cmdNumber CMD_PHOTOARROW_RE
     command_refEndLevel(ext);
 }
 
-Public cmdName void cmd_photoConfigScale(char* unparsedP) cmdNumber CMD_PHOTOARROW_ARROW_COLOR {
-    int scale = -1;
-    if (1 != sscanf(unparsedP, "%d", &scale)) {
-        mdlLogger_info("photoarrow config scale {percent}");
-        return;
-    }
-}
-
-Public cmdName void cmd_photoConfigLevel(char* unparsedP) cmdNumber CMD_PHOTOARROW_ARROW_LEVEL {
+Public cmdName void cmd_arrowLevel(char* unparsedP) cmdNumber CMD_PHOTOARROW_ARROW_LEVEL {
     int level = -1;
     if (1 != sscanf(unparsedP, "%d", &level)) {
-        mdlLogger_info("photoarrow config level {level}");
+        mdlLogger_info("photoarrow arrow level {level}");
         return;
     }
+    command_arrowLevel(level);
+}
+
+Public cmdName void cmd_arrowFont(char* unparsedP) cmdNumber CMD_PHOTOARROW_ARROW_FONT {
+    int font = -1;
+    if (1 != sscanf(unparsedP, "%d", &font)) {
+        mdlLogger_info("photoarrow arrow font {font}");
+        return;
+    }
+    command_arrowFont(font);
+}
+
+Public cmdName void cmd_arrowColor(char* unparsedP) cmdNumber CMD_PHOTOARROW_ARROW_COLOR {
+    int color;
+    if (1 != sscanf(unparsedP, "%d", &color)) {
+        mdlLogger_info("photoarrow arrow color {color}");
+        return;
+    }
+    command_arrowColor(color);
+}
+
+Public cmdName void cmd_arrowTextSize(char* unparsedP) cmdNumber CMD_PHOTOARROW_ARROW_TEXTSIZE {
+    double size;
+    if (1 != sscanf(unparsedP, "%f", &size)) {
+        mdlLogger_info("photoarrow arrow textSize {size}");
+        return;
+    }
+    command_arrowTextSize(size);
 }
 
 Public cmdName void cmd_photoReferences(char* unparsedP) cmdNumber CMD_PHOTOARROW_LOAD_ARROWS {

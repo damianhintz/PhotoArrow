@@ -17,7 +17,7 @@ void photoReader_summary(LpPhotoReader thisP) {
         //photoReader_parsePhotoName(thisP, index, photoName);
         //mdlLogger_info(photoName);
     }
-    sprintf(msg, "photoReader: %d files (*.jpg)", thisP->filesCount);
+    sprintf(msg, "photoReader: %d files (%s)", thisP->filesCount, _photoExt);
     mdlLogger_info(msg);
 }
 

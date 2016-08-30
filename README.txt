@@ -12,7 +12,8 @@ PhotoArrow start
 Do zrobienia
 * podręcznik użytkownika
 * dwujęzyczna kompilacja (polski i angielski)
-* raport z brakujących zdjęć do pliku
+* ustawienie warstwy zapisu strzałek
+* wykrywanie nadliczbowych lub brakujących zdjęć
 
 2016-08-30 v1.1-beta
 * wybór obszaru ogrodzenia przez użytkownika
@@ -22,6 +23,10 @@ Do zrobienia
 * nowe polecenie do odczytywania konfiguracji z pliku PhotoArrow.config (automatycznie wykonywane podczas startu)
 * nowe polecenie do ustawiania podkatalogu zdjęć (photoarrow photo subdir)
 * nowe polecenie do ustawiania typu zdjęć (photoarrow photo ext)
+* nowe polecenie do ustawiania warstwy strzałki (photoarrow arrow level)
+* nowe polecenie do ustawiania czcionki numeru strzałki (photo arrow font)
+* nowe polecenie do ustawiania koloru strzałki (photo arrow color)
+* nowe polecenie do ustawiania rozmiaru numeru strzałki (photo arrow textSize)
 
 2016-08-22 v1.0-beta
 * pierwsza wersja programu

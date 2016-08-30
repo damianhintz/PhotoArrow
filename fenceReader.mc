@@ -65,7 +65,7 @@ int fence_countRefElement(LpFenceReader thisP) {
 }
 
 int fenceReader_load(LpFenceReader thisP) {
-    mdlLogger_info("fenceReader: loading ref elements from user fence");
+    //mdlLogger_info("fenceReader: loading ref elements from user fence");
     //init fence
     thisP->startPoints = (PhotoPoint*) calloc(thisP->maxCount, sizeof (PhotoPoint));
     thisP->endPoints = (PhotoPoint*) calloc(thisP->maxCount, sizeof (PhotoPoint));

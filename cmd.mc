@@ -84,6 +84,38 @@ void command_refEndLevel(int endLevel) {
     mdlLogger_info(msg);
 }
 
+void command_arrowLevel(int level) {
+    char msg[256];
+    _arrowLevel = level;
+    //int mdlParams_setActive(void* param, int paramName);
+    mdlParams_setActive((void*) _arrowLevel, ACTIVEPARAM_LEVEL);
+    sprintf(msg, "command_arrowLevel: %d", _arrowLevel);
+    mdlLogger_info(msg);
+}
+
+void command_arrowFont(int font) {
+    char msg[256];
+    _arrowFont = font;
+    sprintf(msg, "command_arrowFont: %d", _arrowFont);
+    mdlLogger_info(msg);
+}
+
+void command_arrowColor(int color) {
+    char msg[256];
+    _arrowColor = color;
+    //int mdlParams_setActive(void* param, int paramName);
+    mdlParams_setActive((void*) _arrowColor, ACTIVEPARAM_COLOR);
+    sprintf(msg, "command_arrowColor: %d", _arrowColor);
+    mdlLogger_info(msg);
+}
+
+void command_arrowTextSize(double size) {
+    char msg[256];
+    _arrowTextSize = size;
+    sprintf(msg, "command_arrowTextSize: %.2f", _arrowTextSize);
+    mdlLogger_info(msg);
+}
+
 void command_loadArrowsFromFile() {
     char row[256];
     FILE* file;

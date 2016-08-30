@@ -49,6 +49,10 @@ extern char _photoSubdir[MAXFILELENGTH];
 extern char _photoExt[MAXFILELENGTH];
 extern int _refStartLevel;
 extern int _refEndLevel;
+extern int _arrowLevel;
+extern int _arrowFont;
+extern int _arrowColor;
+extern double _arrowTextSize;
 
 int app_loadGui();
 int app_loadCui();

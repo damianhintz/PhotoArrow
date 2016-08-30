@@ -10,6 +10,10 @@ char _photoSubdir[MAXFILELENGTH];
 char _photoExt[MAXFILELENGTH];
 int _refStartLevel = 7;
 int _refEndLevel = 47;
+int _arrowLevel = 7;
+int _arrowFont = 1;
+int _arrowColor = 0;
+double _arrowTextSize = 2.0;
 
 void app_setPath(char* appPath) {
     char ext[MAXEXTENSIONLENGTH];

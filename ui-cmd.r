@@ -38,10 +38,10 @@ Table CT_REF =
 
 Table CT_ARROW =
 {
-    {1, CT_NONE, INHERIT, NONE, "size"},
+    {1, CT_NONE, INHERIT, NONE, "level"},
     {2, CT_NONE, INHERIT, NONE, "font"},
     {3, CT_NONE, INHERIT, NONE, "color"},
-    {4, CT_NONE, INHERIT, NONE, "level"},
+    {4, CT_NONE, INHERIT, NONE, "textSize"},
 };
 
 Table CT_LOAD =
