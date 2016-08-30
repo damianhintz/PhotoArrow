@@ -2,15 +2,35 @@
 
 Public cmdName void cmd_photoInit(char* unparsedP) cmdNumber CMD_PHOTOARROW_START {
     mdlLogger_info("photoarrow: START");
-    command_loadPhotoPointsFromFence();
+    command_loadFence();
     mdlLogger_info("photoarrow: END");
-    return;
+    //return;
 }
 
 Public cmdName void cmd_photoHelp(char* unparsedP) cmdNumber CMD_PHOTOARROW_PHOTO_SUBDIR {
-    mdlLogger_info("photoarrow help/about");
-    mdlLogger_info("photoarrow v1.0-beta");
-    return;
+    int endLevel = -1;
+    if (1 != sscanf(unparsedP, "%d", &endLevel)) {
+        mdlLogger_err("photoarrow ref fence start");
+        return;
+    }
+}
+
+Public cmdName void cmd_refStartLevel(char* unparsedP) cmdNumber CMD_PHOTOARROW_REF_STARTLEVEL {
+    int endLevel = -1;
+    if (1 != sscanf(unparsedP, "%d", &endLevel)) {
+        mdlLogger_err("photoarrow ref startLevel {level}");
+        return;
+    }
+    command_refStartLevel(endLevel);
+}
+
+Public cmdName void cmd_refEndLevel(char* unparsedP) cmdNumber CMD_PHOTOARROW_REF_ENDLEVEL {
+    int endLevel = -1;
+    if (1 != sscanf(unparsedP, "%d", &endLevel)) {
+        mdlLogger_err("photoarrow ref endLevel {level}");
+        return;
+    }
+    command_refEndLevel(endLevel);
 }
 
 Public cmdName void cmd_photoConfigScale(char* unparsedP) cmdNumber CMD_PHOTOARROW_ARROW_COLOR {
@@ -33,11 +53,7 @@ Public cmdName void cmd_photoConfigLevel(char* unparsedP) cmdNumber CMD_PHOTOARR
     return;
 }
 
-Public cmdName void cmd_photoReferences(char* unparsedP) cmdNumber CMD_PHOTOARROW_REFERENCES {
-    //int okSlots = getRefCount(); //int references = mdlRefFile_getRefCount();
-    //char msg[256];
-    //sprintf(msg, "photoarrow references: %d ok slot[s]", okSlots);
-    //mdlLogger_info(msg);
+Public cmdName void cmd_photoReferences(char* unparsedP) cmdNumber CMD_PHOTOARROW_LOADARROWS {
     command_loadArrowsFromFile();
     return;
 }

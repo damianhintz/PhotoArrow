@@ -1,6 +1,6 @@
 #include "cmd.h"
 
-int command_loadPhotoPointsFromFence() {
+int command_loadFence() {
     PhotoReader photos;
     FenceReader reader;
     ArrowBuilder builder;
@@ -34,6 +34,16 @@ int command_loadPhotoPointsFromFence() {
     fenceReader_free(&reader);
     photoReader_free(&photos);
     return TRUE;
+}
+
+void command_refStartLevel(int startLevel) {
+    _refStartLevel = startLevel;
+    //mdlLogger_info("command_refStartLevel: not implemented");
+}
+
+void command_refEndLevel(int endLevel) {
+    _refEndLevel = endLevel;
+    //mdlLogger_info("command_refEndLevel: not implemented");
 }
 
 void command_loadArrowsFromFile() {
@@ -167,12 +177,4 @@ int mdlSelection_addKierunek(ModelNumber fileNum, ULong filePos) {
     else refCount++;
     mdlElmdscr_freeAll(&edP);
     return TRUE;
-}
-
-void command_configScale(int scale) {
-    //_precyzja = precyzja;
-}
-
-void command_configLevel(int level) {
-
 }

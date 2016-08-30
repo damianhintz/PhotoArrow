@@ -18,17 +18,17 @@
 #include <cmdlist.h>
 #include <msdialog.fdf>
 #include <msparse.fdf>
-#include "main.h"
+#include "app.h"
 #include "photoReader.h"
 #include "fenceReader.h"
 #include "arrowBuilder.h"
 #include "ui.h"
 #include "ui-cmd.h"
 
-int command_loadPhotoPointsFromFence();
+int command_loadFence();
 void command_loadArrowsFromFile();
-void command_configScale(int scale);
-void command_configLevel(int level);
+void command_refStartLevel(int startLevel);
+void command_refEndLevel(int endLevel);
 
 #endif /* CMD_H */
 

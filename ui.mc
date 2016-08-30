@@ -39,7 +39,7 @@ Private void startHook(DialogItemMessage *dimP) {
         case DITEM_MESSAGE_BUTTON:
             if (dimP->u.button.buttonTrans != BUTTONTRANS_UP) break;
             mdlLogger_info("photoarrow: START");
-            command_loadPhotoPointsFromFence();
+            command_loadFence();
             mdlLogger_info("photoarrow: END");
             break;
         default:

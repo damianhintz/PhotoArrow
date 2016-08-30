@@ -1,10 +1,12 @@
 #include "app.h"
 
-char g_appPath[MAXFILELENGTH];
-char g_appDir[MAXDIRLENGTH];
-char g_appName[MAXNAMELENGTH];
-char g_iniPath[MAXFILELENGTH];
-char g_devName[MAXNAMELENGTH];
+char _appPath[MAXFILELENGTH];
+char _appDir[MAXDIRLENGTH];
+char _appName[MAXNAMELENGTH];
+char _iniPath[MAXFILELENGTH];
+char _devName[MAXNAMELENGTH];
+int _refStartLevel = 7;
+int _refEndLevel = 47;
 
 /* mdlApp_setNumber */
 int mdlApp_setNumber() {
@@ -46,24 +48,24 @@ int mdlApp_getFileAndMdl(char* fileName, char* mdlDir) {
 int mdlApp_setPath(char* appPath) {
     char ext[MAXEXTENSIONLENGTH];
 
-    strcpy(g_appPath, appPath);
+    strcpy(_appPath, appPath);
 
-    mdlFile_parseName(g_appPath, g_devName, g_appDir, g_appName, ext);
-    mdlFile_buildName(g_iniPath, g_devName, g_appDir, g_appName, "ini");
-    mdlFile_buildName(g_appDir, g_devName, g_appDir, NULL, NULL);
+    mdlFile_parseName(_appPath, _devName, _appDir, _appName, ext);
+    mdlFile_buildName(_iniPath, _devName, _appDir, _appName, "ini");
+    mdlFile_buildName(_appDir, _devName, _appDir, NULL, NULL);
 
     return TRUE;
 }
 
 int mdlApp_getExtPath(char* extPath, char* extP) {
-    mdlFile_buildName(extPath, NULL, g_appDir, g_appName, extP);
+    mdlFile_buildName(extPath, NULL, _appDir, _appName, extP);
 
     return TRUE;
 }
 
 int mdlApp_getIniPath(char* iniPath) {
     if (iniPath != NULL) {
-        strcpy(iniPath, g_iniPath);
+        strcpy(iniPath, _iniPath);
         return TRUE;
     }
 

@@ -40,10 +40,12 @@
 #include "app\appView.h"
 #include "ui.h"
 
-extern char g_appPath[MAXFILELENGTH];
-extern char g_appDir[MAXDIRLENGTH];
-extern char g_appName[MAXNAMELENGTH];
-extern char g_iniPath[MAXFILELENGTH];
+extern char _appPath[MAXFILELENGTH];
+extern char _appDir[MAXDIRLENGTH];
+extern char _appName[MAXNAMELENGTH];
+extern char _iniPath[MAXFILELENGTH];
+extern int _refStartLevel;
+extern int _refEndLevel;
 
 int loadGui();
 int loadCui();
