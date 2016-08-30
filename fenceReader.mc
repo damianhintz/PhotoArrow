@@ -133,7 +133,7 @@ void fence_parseMaster(LpFenceReader thisP, MSElementDescr* edP, ModelNumber fil
     thisP->masterCount++;
 }
 
-int fenceReader_searchStartName(LpFenceReader thisP, char* photoName, Dpoint3d* foundP) {
+PhotoPoint* fenceReader_searchStartName(LpFenceReader thisP, char* photoName, DPoint3d* foundP) {
     PhotoPoint point;
     PhotoPoint* foundPoint = NULL;
     if (thisP == NULL) return FALSE;
@@ -141,7 +141,7 @@ int fenceReader_searchStartName(LpFenceReader thisP, char* photoName, Dpoint3d* 
     strncpy(point.name, photoName, MAX_PHOTO_NAME);
     foundPoint = fenceReader_binarySearch(&point, thisP->startPoints, thisP->startPointsCount);
     if (foundPoint != NULL && foundP != NULL) *foundP = foundPoint->point;
-    return foundPoint != NULL;
+    return foundPoint;
 }
 
 int fenceReader_searchEndName(LpFenceReader thisP, char* photoName, DPoint3d* foundP) {

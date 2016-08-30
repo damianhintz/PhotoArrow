@@ -22,6 +22,7 @@
 typedef struct _photoPoint {
     char name[MAX_PHOTO_NAME];
     DPoint3d point;
+    int used;
 } PhotoPoint, *LpPhotoPoint;
 
 typedef struct _fenceReader {
@@ -44,7 +45,7 @@ int fence_selectCurrentRefElement(LpFenceReader thisP);
 int fence_parseRef(LpFenceReader thisP, MSElementDescr* edP, ModelNumber fileNum);
 void fence_parseMaster(LpFenceReader thisP, MSElementDescr* edP, ModelNumber fileNum);
 
-int fenceReader_searchStartName(LpFenceReader thisP, char* photoName, DPoint3d* foundP);
+PhotoPoint* fenceReader_searchStartName(LpFenceReader thisP, char* photoName, DPoint3d* foundP);
 int fenceReader_searchEndName(LpFenceReader thisP, char* photoName, DPoint3d* foundP);
 PhotoPoint* fenceReader_binarySearch(LpPhotoPoint key, PhotoPoint* points, long count);
 int fenceReader_comparePhotos(LpPhotoPoint p1, LpPhotoPoint p2);

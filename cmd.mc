@@ -27,7 +27,7 @@ int command_loadFence() {
     }
     //build arrows
     arrowBuilder_init(&builder, &reader);
-    arrowBuilder_load(&builder, &photos, &reader);
+    arrowBuilder_createArrows(&builder, &photos, &reader);
     arrowWriter_saveAll(&builder);
     arrowBuilder_summary(&builder);
     //free resources

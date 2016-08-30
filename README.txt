@@ -12,8 +12,7 @@ PhotoArrow start
 Do zrobienia
 * podręcznik użytkownika
 * dwujęzyczna kompilacja (polski i angielski)
-* ustawienie warstwy zapisu strzałek
-* wykrywanie nadliczbowych lub brakujących zdjęć
+* wykrywanie duplikatów strzałek
 
 2016-08-30 v1.1-beta
 * wybór obszaru ogrodzenia przez użytkownika
@@ -27,6 +26,8 @@ Do zrobienia
 * nowe polecenie do ustawiania czcionki numeru strzałki (photo arrow font)
 * nowe polecenie do ustawiania koloru strzałki (photo arrow color)
 * nowe polecenie do ustawiania rozmiaru numeru strzałki (photo arrow textSize)
+* wykrywanie brakujących strzałek
+* wykrywanie brakujących plików zdjęć
 
 2016-08-22 v1.0-beta
 * pierwsza wersja programu
