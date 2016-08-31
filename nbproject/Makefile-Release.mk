@@ -48,6 +48,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/core/mdlScan.o \
 	${OBJECTDIR}/core/mdlSelect.o \
 	${OBJECTDIR}/core/mdlText.o \
+	${OBJECTDIR}/core/photoArrow.o \
 	${OBJECTDIR}/fenceReader.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/photoReader.o \
@@ -144,6 +145,11 @@ ${OBJECTDIR}/core/mdlText.o: core/mdlText.mc
 	${MKDIR} -p ${OBJECTDIR}/core
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/mdlText.o core/mdlText.mc
+
+${OBJECTDIR}/core/photoArrow.o: core/photoArrow.mc 
+	${MKDIR} -p ${OBJECTDIR}/core
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/core/photoArrow.o core/photoArrow.mc
 
 ${OBJECTDIR}/fenceReader.o: fenceReader.mc 
 	${MKDIR} -p ${OBJECTDIR}

@@ -7,5 +7,7 @@
 #include "core\mdlSelect.h"
 #include "core\mdlText.h"
 #include "core\mdlLine.h"
+#include "core\photoPoint.h"
+#include "core\photoArrow.h"
 
 #endif

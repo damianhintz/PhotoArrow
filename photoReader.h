@@ -8,7 +8,7 @@
 #ifndef PHOTOREADER_H
 #define PHOTOREADER_H
 #include "app.h"
-#define MAX_PHOTO_NAME 32
+#include "core.h"
 
 typedef struct _photoReader {
     FindFileInfo* files;

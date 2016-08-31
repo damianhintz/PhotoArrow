@@ -42,18 +42,7 @@ void arrowBuilder_addArrow(LpArrowBuilder thisP, char* photoName, DPoint3d* star
     length = vector_distance2D(&arrowP->startPoint, &arrowP->endPoint);
     lengthInMeters = mdlCnv_uorsToMasterUnits(length);
     if (lengthInMeters < _arrowMaxLength) return; //length ok
-    arrowBuilder_normalizeArrow(arrowP);
-}
-
-void arrowBuilder_normalizeArrow(PhotoArrow* arrowP) {
-    DPoint3d normal, normalMax;
-    mdlVec_computeNormal(&normal, &arrowP->endPoint, &arrowP->startPoint);
-    mdlVec_scale(&normalMax, &normal, mdlCnv_masterUnitsToUors(_arrowMaxLength));
-    //update arrow end point
-    arrowP->endPoint = arrowP->startPoint;
-    arrowP->endPoint.x += normalMax.x;
-    arrowP->endPoint.y += normalMax.y;
-    arrowP->endPoint.z = 0.0;
+    photoArrow_normalizeLength(arrowP);
 }
 
 void arrowBuilder_createArrows(LpArrowBuilder thisP, LpPhotoReader photosP, LpFenceReader readerP) {

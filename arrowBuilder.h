@@ -8,14 +8,9 @@
 #ifndef ARROWBUILDER_H
 #define ARROWBUILDER_H
 #include "app.h"
+#include "core.h"
 #include "fenceReader.h"
 #include "vectorMath.h"
-
-typedef struct _photoArrow {
-    char name[MAX_PHOTO_NAME];
-    DPoint3d startPoint;
-    DPoint3d endPoint;
-} PhotoArrow, *LpPhotoArrow;
 
 typedef struct _arrowBuilder {
     PhotoArrow* arrows;

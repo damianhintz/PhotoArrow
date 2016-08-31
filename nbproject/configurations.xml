@@ -4,6 +4,22 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <logicalFolder name="f2" displayName="app" projectFiles="true">
+        <itemPath>app/appView.h</itemPath>
+        <itemPath>app/mdlLogger.h</itemPath>
+        <itemPath>app/mdlUtil.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="core" projectFiles="true">
+        <itemPath>core/mdlElement.h</itemPath>
+        <itemPath>core/mdlFence.h</itemPath>
+        <itemPath>core/mdlGeom.h</itemPath>
+        <itemPath>core/mdlLine.h</itemPath>
+        <itemPath>core/mdlScan.h</itemPath>
+        <itemPath>core/mdlSelect.h</itemPath>
+        <itemPath>core/mdlText.h</itemPath>
+        <itemPath>core/photoArrow.h</itemPath>
+        <itemPath>core/photoPoint.h</itemPath>
+      </logicalFolder>
       <itemPath>app.h</itemPath>
       <itemPath>arrowBuilder.h</itemPath>
       <itemPath>cmd.h</itemPath>
@@ -28,28 +44,19 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f2" displayName="app" projectFiles="true">
-        <itemPath>app/appView.h</itemPath>
         <itemPath>app/appView.mc</itemPath>
-        <itemPath>app/mdlLogger.h</itemPath>
         <itemPath>app/mdlLogger.mc</itemPath>
-        <itemPath>app/mdlUtil.h</itemPath>
         <itemPath>app/mdlUtil.mc</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="core" projectFiles="true">
-        <itemPath>core/mdlElement.h</itemPath>
         <itemPath>core/mdlElement.mc</itemPath>
-        <itemPath>core/mdlFence.h</itemPath>
         <itemPath>core/mdlFence.mc</itemPath>
-        <itemPath>core/mdlGeom.h</itemPath>
         <itemPath>core/mdlGeom.mc</itemPath>
-        <itemPath>core/mdlLine.h</itemPath>
         <itemPath>core/mdlLine.mc</itemPath>
-        <itemPath>core/mdlScan.h</itemPath>
         <itemPath>core/mdlScan.mc</itemPath>
-        <itemPath>core/mdlSelect.h</itemPath>
         <itemPath>core/mdlSelect.mc</itemPath>
-        <itemPath>core/mdlText.h</itemPath>
         <itemPath>core/mdlText.mc</itemPath>
+        <itemPath>core/photoArrow.mc</itemPath>
       </logicalFolder>
       <itemPath>app.mc</itemPath>
       <itemPath>arrowBuilder.mc</itemPath>
@@ -153,6 +160,12 @@
       <item path="core/mdlText.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="core/mdlText.mc" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="core/photoArrow.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="core/photoArrow.mc" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="core/photoPoint.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="def-v8.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -262,6 +275,12 @@
       <item path="core/mdlText.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="core/mdlText.mc" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="core/photoArrow.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="core/photoArrow.mc" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="core/photoPoint.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="def-v8.h" ex="false" tool="3" flavor2="0">
       </item>

@@ -19,12 +19,6 @@
 #include "core.h"
 #include "photoReader.h"
 
-typedef struct _photoPoint {
-    char name[MAX_PHOTO_NAME];
-    DPoint3d point;
-    int used;
-} PhotoPoint, *LpPhotoPoint;
-
 typedef struct _fenceReader {
     int maxCount;
     int masterCount;
