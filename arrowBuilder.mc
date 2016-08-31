@@ -1,8 +1,6 @@
 #include "arrowBuilder.h"
 #include "photoReader.h"
 
-const double _pi = 3.14159265;
-
 void arrowBuilder_init(LpArrowBuilder thisP, LpFenceReader readerP) {
     if (thisP == NULL) return;
     if (readerP == NULL) return;
@@ -33,6 +31,7 @@ void arrowBuilder_summary(LpArrowBuilder thisP) {
 
 void arrowBuilder_addArrow(LpArrowBuilder thisP, char* photoName, DPoint3d* startPoint, DPoint3d* endPoint) {
     PhotoArrow* arrowP = NULL;
+    double length, lengthInMeters;
     int index = thisP->arrowsCount;
     if (index >= thisP->maxArrows) return; //no room
     arrowP = &thisP->arrows[index];
@@ -40,6 +39,21 @@ void arrowBuilder_addArrow(LpArrowBuilder thisP, char* photoName, DPoint3d* star
     arrowP->startPoint = *startPoint;
     arrowP->endPoint = *endPoint;
     thisP->arrowsCount++;
+    length = vector_distance2D(&arrowP->startPoint, &arrowP->endPoint);
+    lengthInMeters = mdlCnv_uorsToMasterUnits(length);
+    if (lengthInMeters < _arrowMaxLength) return; //length ok
+    arrowBuilder_normalizeArrow(arrowP);
+}
+
+void arrowBuilder_normalizeArrow(PhotoArrow* arrowP) {
+    DPoint3d normal, normalMax;
+    mdlVec_computeNormal(&normal, &arrowP->endPoint, &arrowP->startPoint);
+    mdlVec_scale(&normalMax, &normal, mdlCnv_masterUnitsToUors(_arrowMaxLength));
+    //update arrow end point
+    arrowP->endPoint = arrowP->startPoint;
+    arrowP->endPoint.x += normalMax.x;
+    arrowP->endPoint.y += normalMax.y;
+    arrowP->endPoint.z = 0.0;
 }
 
 void arrowBuilder_createArrows(LpArrowBuilder thisP, LpPhotoReader photosP, LpFenceReader readerP) {
@@ -119,7 +133,7 @@ void arrowWriter_saveAll(LpArrowBuilder thisP) {
         MSElement line, text;
         //save arrow as line string (scale it to 80%)
         PhotoArrow* arrowP = &thisP->arrows[i];
-        double rotation = angle(&arrowP->startPoint, &arrowP->endPoint);
+        double rotation = vector_angle(&arrowP->startPoint, &arrowP->endPoint);
         sprintf(msg, "%.2f %.2f %.2f %.2f %s",
                 arrowP->startPoint.x, arrowP->startPoint.y,
                 arrowP->endPoint.x, arrowP->endPoint.y,
@@ -174,7 +188,7 @@ int arrowBuilder_createTextAtTheEndOfVector(MSElement* textP, PhotoArrow* arrowP
     ULong font = _arrowFont;
     double height = _arrowTextSize;
     double width = _arrowTextSize;
-    double rotation = angle(&arrowP->startPoint, &arrowP->endPoint);
+    double rotation = vector_angle(&arrowP->startPoint, &arrowP->endPoint);
     //int just = TXTJUST_LB; //left bottom
     int just = TXTJUST_LC; //left center
     RotMatrix rotMatrix;
@@ -199,7 +213,7 @@ int arrowBuilder_createReverseTextAtTheEndOfVector(MSElement* textP, PhotoArrow*
     ULong font = _arrowFont;
     double height = _arrowTextSize;
     double width = _arrowTextSize;
-    double rotation = angle(&arrowP->startPoint, &arrowP->endPoint);
+    double rotation = vector_angle(&arrowP->startPoint, &arrowP->endPoint);
     double reverse;
     //int just = TXTJUST_LB; //left bottom
     int just = TXTJUST_LC; //left center
@@ -231,18 +245,4 @@ int arrowBuilder_createReverseTextAtTheEndOfVector(MSElement* textP, PhotoArrow*
     if (rotation > 2 * _pi) rotation -= 2 * _pi; //normalize angle
     mdlRMatrix_fromAngle(&rotMatrix, rotation);
     return SUCCESS == mdlText_create(textP, NULL, arrowP->name, &startPoint, &size, &rotMatrix, &param, NULL);
-}
-
-// Returns the angle of the vector from p0 to p1, relative to the positive X-axis.
-// The angle is normalized to be in the range [ 0, 2*Pi ].
-// <param name="p0">The start-point</param>
-// <param name="p1">The end-point</param>
-// Returns the normalized angle (in radians) that p0-p1 makes with the positive X-axis.
-
-double angle(DPoint3d* p0, DPoint3d* p1) {
-    double dx = p1->x - p0->x;
-    double dy = p1->y - p0->y;
-    double rot = atan2(dy, dx) + 2 * _pi;
-    while (rot > 2 * _pi) rot -= 2 * _pi;
-    return rot;
 }

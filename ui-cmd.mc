@@ -84,6 +84,15 @@ Public cmdName void cmd_arrowTextSize(char* unparsedP) cmdNumber CMD_PHOTOARROW_
     command_arrowTextSize(size);
 }
 
+Public cmdName void cmd_arrowMaxLength(char* unparsedP) cmdNumber CMD_PHOTOARROW_ARROW_MAXLENGTH {
+    double length;
+    if (1 != sscanf(unparsedP, "%f", &length)) {
+        mdlLogger_info("photoarrow arrow maxLength {length}");
+        return;
+    }
+    command_arrowMaxLength(length);
+}
+
 Public cmdName void cmd_photoReferences(char* unparsedP) cmdNumber CMD_PHOTOARROW_LOAD_ARROWS {
     command_loadArrowsFromFile();
 }

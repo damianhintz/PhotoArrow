@@ -36,6 +36,7 @@ void command_arrowLevel(int level);
 void command_arrowFont(int font);
 void command_arrowColor(int color);
 void command_arrowTextSize(double size);
+void command_arrowMaxLength(double length);
 
 #endif /* CMD_H */
 

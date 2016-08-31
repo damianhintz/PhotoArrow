@@ -9,6 +9,7 @@
 #define ARROWBUILDER_H
 #include "app.h"
 #include "fenceReader.h"
+#include "vectorMath.h"
 
 typedef struct _photoArrow {
     char name[MAX_PHOTO_NAME];
@@ -35,7 +36,6 @@ void arrowWriter_saveAll(LpArrowBuilder thisP);
 int arrowBuilder_createArrowFromVector(MSElement* lineP, PhotoArrow* arrowP);
 int arrowBuilder_createTextAtTheEndOfVector(MSElement* textP, PhotoArrow* arrowP);
 int arrowBuilder_createReverseTextAtTheEndOfVector(MSElement* textP, PhotoArrow* arrowP);
-double angle(DPoint3d* p0, DPoint3d* p1);
 
 #endif /* ARROWBUILDER_H */
 

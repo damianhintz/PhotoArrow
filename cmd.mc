@@ -116,6 +116,13 @@ void command_arrowTextSize(double size) {
     mdlLogger_info(msg);
 }
 
+void command_arrowMaxLength(double length) {
+    char msg[256];
+    _arrowMaxLength = length;
+    sprintf(msg, "command_arrowMaxLength: %.2f", _arrowMaxLength);
+    mdlLogger_info(msg);
+}
+
 void command_loadArrowsFromFile() {
     char row[256];
     FILE* file;

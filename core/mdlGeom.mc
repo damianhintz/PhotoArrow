@@ -435,21 +435,12 @@ double mdlGeom_Mul2D(DPoint3d* p1, DPoint3d* p2) {
     return p1->x * p2->y - p2->x * p1->y;
 }
 
-/* r�nica dw�ch wektor�w */
+/* ronica dwoch wektorow */
 DPoint3d mdlGeom_Dif2D(DPoint3d* p1, DPoint3d* p2) {
     DPoint3d p3;
-
     p3.x = p1->x - p2->x;
     p3.y = p1->y - p2->y;
-
     return p3;
-}
-
-double mdlGeom_Dis2D(DPoint3d* p1, DPoint3d* p2) {
-    double dx = p1->x - p2->x;
-    double dy = p1->y - p2->y;
-
-    return sqrt(dx * dx + dy * dy);
 }
 
 /* oblicz kat w stopniach miedzy trzema punktami */
@@ -541,79 +532,6 @@ int mdlElem_jestInt(DPoint3d* a, DPoint3d* b, DPoint3d* c) {
     double bc = mdlCnv_uorsToMasterUnits(mdlVec_distance(b, c));
 
     return ac <= ab && bc <= ab;
-}
-
-int mdlGeom_odcinkiStyczne(DPoint3d* a1, DPoint3d* a2, DPoint3d* b1, DPoint3d* b2, DPoint3d* aKwadrat, double f_tol) {
-    DPoint3d da, db;
-    DPoint3d *a1P = NULL, *a2P = NULL, *b1P = NULL, *b2P = NULL;
-
-    if (a1 == NULL || a2 == NULL || b1 == NULL || b2 == NULL)
-        return FALSE;
-
-    //a1 b1
-    if (mdlGeom_Dis2D(a1, b1) < f_tol) {
-        //wektor odcinka a
-        a1P = a1;
-        a2P = a2;
-        //wektor odcinka b
-        b1P = b1;
-        b2P = b2;
-
-    } else
-        //a1 b2
-        if (mdlGeom_Dis2D(a1, b2) < f_tol) {
-        //wektor odcinka a
-        a1P = a1;
-        a2P = a2;
-        //wektor odcinka b
-        b1P = b2;
-        b2P = b1;
-
-    } else
-        //a2 b1
-        if (mdlGeom_Dis2D(a2, b1) < f_tol) {
-        //wektor odcinka a
-        a1P = a2;
-        a2P = a1;
-        //wektor odcinka b
-        b1P = b1;
-        b2P = b2;
-
-    } else
-        //a2 b2
-        if (mdlGeom_Dis2D(a2, b2) < f_tol) {
-        //wektor odcinka a
-        a1P = a2;
-        a2P = a1;
-        //wektor odcinka b
-        b1P = b2;
-        b2P = b1;
-
-    }
-
-    if (a1P == NULL)
-        return FALSE;
-
-    //wektor odcinka a
-    da.x = a2P->x - a1P->x;
-    da.y = a2P->y - a1P->y;
-
-    //wektor odcinka b
-    db.x = b2P->x - b1P->x;
-    db.y = b2P->y - b1P->y;
-
-    //punkt kwadratu
-    aKwadrat[3].x = a2P->x + db.x;
-    aKwadrat[3].y = a2P->y + db.y;
-
-    aKwadrat[0] = *a2P;
-    aKwadrat[1] = *a1P;
-    aKwadrat[2] = *b2P;
-
-    //x = b2P.x + da.x;
-    //y = b2P.y + da.y;
-
-    return TRUE;
 }
 
 int mdlGeom_ObliczWektor(DPoint3d* a, DPoint3d* b, DPoint3d* c, DPoint3d* v, double f_tol) {

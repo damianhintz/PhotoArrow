@@ -14,6 +14,7 @@
       <itemPath>photoReader.h</itemPath>
       <itemPath>ui-cmd.h</itemPath>
       <itemPath>ui.h</itemPath>
+      <itemPath>vectorMath.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -58,6 +59,7 @@
       <itemPath>photoReader.mc</itemPath>
       <itemPath>ui-cmd.mc</itemPath>
       <itemPath>ui.mc</itemPath>
+      <itemPath>vectorMath.mc</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -178,6 +180,10 @@
       </item>
       <item path="ui.r" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="vectorMath.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="vectorMath.mc" ex="false" tool="0" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -282,6 +288,10 @@
       <item path="ui.mc" ex="false" tool="0" flavor2="0">
       </item>
       <item path="ui.r" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="vectorMath.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="vectorMath.mc" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
   </confs>

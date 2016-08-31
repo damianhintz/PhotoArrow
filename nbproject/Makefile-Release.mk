@@ -52,7 +52,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/photoReader.o \
 	${OBJECTDIR}/ui-cmd.o \
-	${OBJECTDIR}/ui.o
+	${OBJECTDIR}/ui.o \
+	${OBJECTDIR}/vectorMath.o
 
 
 # C Compiler Flags
@@ -168,6 +169,11 @@ ${OBJECTDIR}/ui.o: ui.mc
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ui.o ui.mc
+
+${OBJECTDIR}/vectorMath.o: vectorMath.mc 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/vectorMath.o vectorMath.mc
 
 # Subprojects
 .build-subprojects:
