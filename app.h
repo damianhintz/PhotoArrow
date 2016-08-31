@@ -53,6 +53,7 @@ extern int _arrowLevel;
 extern int _arrowFont;
 extern int _arrowColor;
 extern double _arrowTextSize;
+extern double _arrowMaxLength;
 
 int app_loadGui();
 int app_loadCui();

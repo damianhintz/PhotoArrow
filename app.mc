@@ -14,6 +14,7 @@ int _arrowLevel = 7;
 int _arrowFont = 1;
 int _arrowColor = 0;
 double _arrowTextSize = 2.0;
+double _arrowMaxLength = 20.0;
 
 void app_setPath(char* appPath) {
     char ext[MAXEXTENSIONLENGTH];

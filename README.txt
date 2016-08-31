@@ -1,5 +1,5 @@
-PhotoArrow v1.1-beta - Generowanie strzałek dla kierunków zdjęć
-Data publikacji: 30 sierpnia 2016
+PhotoArrow v1.2-beta - Generowanie strzałek dla kierunków zdjęć
+Data publikacji: 31 sierpnia 2016
 
 Nowe funkcje
 
@@ -11,7 +11,9 @@ PhotoArrow start
 ** Zmiany (historia)
 Do zrobienia
 * podręcznik użytkownika
-* dwujęzyczna kompilacja (polski i angielski)
+
+2016-08-31 v1.2-beta
+* nowe polecenie do ustawiania maksymalnej długości strzałki (photoarrow arrow maxLength)
 
 2016-08-30 v1.1-beta
 * wybór obszaru ogrodzenia przez użytkownika

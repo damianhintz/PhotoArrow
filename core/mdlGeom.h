@@ -34,14 +34,12 @@ double mdlGeom_Intersect(MSElementDescr* edPewid, MSElementDescr* edPbud, ModelN
 double mdlGeom_Min(double x, double y);
 double mdlGeom_Max(double x, double y);
 DPoint3d mdlGeom_Dif2D(DPoint3d* p1, DPoint3d* p2);
-double mdlGeom_Dis2D(DPoint3d* p1, DPoint3d* p2);
 int mdlGeom_GeoOn(DPoint3d* pi, DPoint3d* pj, DPoint3d* pk);
 double mdlGeom_Dir2D(DPoint3d* pi, DPoint3d* pj, DPoint3d* pk);
 double mdlGeom_Dir3P(DPoint3d* pi, DPoint3d* pj, DPoint3d* pk);
 int mdlGeom_Int4P(DPoint3d* p1, DPoint3d* p2, DPoint3d* p3, DPoint3d* p4);
 
 int mdlGeom_jestInt(DPoint3d* a, DPoint3d* b, DPoint3d* c);
-int mdlGeom_odcinkiStyczne(DPoint3d* a1, DPoint3d* a2, DPoint3d* b1, DPoint3d* b2, DPoint3d* aKwadrat, double f_tol);
 int mdlGeom_SkalujKsztalt(DPoint3d* aPunkty, int nPunkty, double f_tol);
 
 #endif

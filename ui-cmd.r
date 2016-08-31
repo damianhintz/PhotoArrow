@@ -42,6 +42,7 @@ Table CT_ARROW =
     {2, CT_NONE, INHERIT, NONE, "font"},
     {3, CT_NONE, INHERIT, NONE, "color"},
     {4, CT_NONE, INHERIT, NONE, "textSize"},
+    {5, CT_NONE, INHERIT, NONE, "maxLength"},
 };
 
 Table CT_LOAD =
