@@ -44,7 +44,7 @@
 @if exist %name%.ma copy /Y %name%.ma %MS%\mdlapps\%name%.ma
 @if exist %name%.ma move /Y %name%.ma build\v8\%name%.ma
 @if exist %name%.config @copy /Y %name%.config build\v8\%name%.config
-@if exist README.txt @copy /Y README.txt build\v7\README.txt
+@if exist README.md @copy /Y README.md build\v8\README.md
 
 @echo Removing temporary files
 @for /R %%f in (*.mo) do @del "%%f"

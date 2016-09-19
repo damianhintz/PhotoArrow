@@ -10,3 +10,15 @@ void photoArrow_normalizeLength(PhotoArrow* arrowP, double maxLength) {
     arrowP->endPoint.y += normalMax.y;
     arrowP->endPoint.z = 0.0;
 }
+
+void photoArrow_normalizeName(PhotoArrow* arrowP) {
+    char* name = arrowP->name;
+    int length = strlen(name), index;
+    //trimLeft(arrowP->name, '-');
+    if (length < 2) return; //too small
+    if (name[0] != '-') return; //it is not a dash
+    //move all characters to the left by 1
+    for (index = 0; index < length; index++) {
+        name[index] = name[index + 1];
+    }
+}

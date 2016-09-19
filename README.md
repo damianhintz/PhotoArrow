@@ -1,4 +1,4 @@
-PhotoArrow v1.3-beta, 19 września 2016
+PhotoArrow v1.3.1, 19 września 2016
 ---
 Generowanie strzałek dla kierunków zdjęć
 
@@ -17,9 +17,11 @@ Generowanie strzałek dla kierunków zdjęć
 Do zrobienia:
 
 - [ ] podręcznik użytkownika
-- [x] domyślny styl 0
-- [x] domyślna grubość 1
-- [x] popraw rozpoznawanie nazwy zdjęcia
+- [x] usuń myślnik z nazwy strzałki bez prefiksu
+
+2016-09-19 v1.3.1
+
+* usuń myślnik z nazwy strzałki bez prefiksu
 
 2016-09-19 v1.3-beta
 

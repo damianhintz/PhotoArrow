@@ -44,6 +44,7 @@ void arrowBuilder_addArrow(LpArrowBuilder thisP, char* photoName, DPoint3d* star
     if (lengthInMeters < _arrowMaxLength) return; //length ok
     maxLength = mdlCnv_masterUnitsToUors(_arrowMaxLength);
     photoArrow_normalizeLength(arrowP, maxLength);
+    photoArrow_normalizeName(arrowP);
 }
 
 void arrowBuilder_createArrows(LpArrowBuilder thisP, LpPhotoReader photosP, LpFenceReader readerP) {

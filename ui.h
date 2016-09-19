@@ -8,10 +8,10 @@
 
 #define C_ID_APPNAME "PhotoArrow"
 #define C_ID_RELEASE 1
-#define C_ID_MAJOR 2
-#define C_ID_MINOR 0
+#define C_ID_MAJOR 3
+#define C_ID_MINOR 1
 #define C_ID_SUBMINOR 0
-#define C_ID_APPTITLE "PhotoArrow v1.3-beta"
+#define C_ID_APPTITLE "PhotoArrow v1.3.1"
 
 #define C_TX_DLG_Main C_ID_APPTITLE
 #define C_ID_DLG_Main 1

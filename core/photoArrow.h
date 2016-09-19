@@ -17,6 +17,7 @@ typedef struct _photoArrow {
 } PhotoArrow, *LpPhotoArrow;
 
 void photoArrow_normalizeLength(PhotoArrow* arrowP, double maxLength);
+void photoArrow_normalizeName(PhotoArrow* arrowP);
 
 #endif /* PHOTOARROW_H */
 
