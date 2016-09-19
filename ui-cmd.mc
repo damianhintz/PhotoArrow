@@ -92,6 +92,14 @@ Public cmdName void cmd_arrowStyle(char* unparsedP) cmdNumber CMD_PHOTOARROW_ARR
     }
     command_arrowStyle(style);
 }
+Public cmdName void cmd_arrowWeight(char* unparsedP) cmdNumber CMD_PHOTOARROW_ARROW_WEIGHT {
+    int weight;
+    if (1 != sscanf(unparsedP, "%d", &weight)) {
+        mdlLogger_info("photoarrow arrow weight {weight}");
+        return;
+    }
+    command_arrowWeight(weight);
+}
 
 Public cmdName void cmd_arrowMaxLength(char* unparsedP) cmdNumber CMD_PHOTOARROW_ARROW_MAXLENGTH {
     double length;

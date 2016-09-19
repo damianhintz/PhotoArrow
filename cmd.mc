@@ -118,6 +118,15 @@ void command_arrowStyle(int style) {
     mdlLogger_info(msg);
 }
 
+void command_arrowWeight(int weight) {
+    char msg[256];
+    _arrowWeight = weight;
+    //int mdlParams_setActive(void* param, int paramName);
+    mdlParams_setActive((void*) _arrowWeight, ACTIVEPARAM_LINEWEIGHT);
+    sprintf(msg, "command_arrowWeight: %d", _arrowWeight);
+    mdlLogger_info(msg);
+}
+
 void command_arrowTextSize(double size) {
     char msg[256];
     _arrowTextSize = size;

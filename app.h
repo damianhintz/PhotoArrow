@@ -53,6 +53,7 @@ extern int _arrowLevel;
 extern int _arrowFont;
 extern int _arrowColor;
 extern int _arrowStyle;
+extern int _arrowWeight;
 extern double _arrowTextSize;
 extern double _arrowMaxLength;
 

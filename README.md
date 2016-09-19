@@ -1,4 +1,4 @@
-PhotoArrow v1.2-beta, 31 sierpnia 2016
+PhotoArrow v1.3-beta, 19 września 2016
 ---
 Generowanie strzałek dla kierunków zdjęć
 
@@ -18,13 +18,14 @@ Do zrobienia:
 
 - [ ] podręcznik użytkownika
 - [x] domyślny styl 0
-- [ ] domyślna grubość 1
+- [x] domyślna grubość 1
+- [x] popraw rozpoznawanie nazwy zdjęcia
 
 2016-09-19 v1.3-beta
 
-* poprawione rozpoznawanie nazwy zdjęcia: `[a-z0-9]*-[a-z0-9]*`
+* popraw rozpoznawanie nazwy zdjęcia: `[a-z0-9]*-[a-z0-9]*`
 * nowe polecenie do ustawiania domyślnego stylu: `PhotoArrow arrow style 0`
-* [ ] nowe polecenie do ustawiania domyślnej grubości: `PhotoArrow arrow weight 1`
+* nowe polecenie do ustawiania domyślnej grubości: `PhotoArrow arrow weight 1`
 
 2016-08-31 v1.2-beta
 
