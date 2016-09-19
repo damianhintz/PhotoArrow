@@ -31,7 +31,7 @@ void arrowBuilder_summary(LpArrowBuilder thisP) {
 
 void arrowBuilder_addArrow(LpArrowBuilder thisP, char* photoName, DPoint3d* startPoint, DPoint3d* endPoint) {
     PhotoArrow* arrowP = NULL;
-    double length, lengthInMeters;
+    double length, lengthInMeters, maxLength;
     int index = thisP->arrowsCount;
     if (index >= thisP->maxArrows) return; //no room
     arrowP = &thisP->arrows[index];
@@ -42,7 +42,8 @@ void arrowBuilder_addArrow(LpArrowBuilder thisP, char* photoName, DPoint3d* star
     length = vector_distance2D(&arrowP->startPoint, &arrowP->endPoint);
     lengthInMeters = mdlCnv_uorsToMasterUnits(length);
     if (lengthInMeters < _arrowMaxLength) return; //length ok
-    photoArrow_normalizeLength(arrowP);
+    maxLength = mdlCnv_masterUnitsToUors(_arrowMaxLength);
+    photoArrow_normalizeLength(arrowP, maxLength);
 }
 
 void arrowBuilder_createArrows(LpArrowBuilder thisP, LpPhotoReader photosP, LpFenceReader readerP) {

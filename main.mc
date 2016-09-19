@@ -6,7 +6,7 @@
  */
 
 #include "main.h"
-#include "ui.h"
+#include "cmd.h"
 
 int main(int argc, char** argv) {
     app_setPath(argv[0]);

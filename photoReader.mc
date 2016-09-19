@@ -46,9 +46,6 @@ int photoReader_findPhotos(LpPhotoReader thisP, char* subdir, char* extPhoto) {
     return thisP->filesCount;
 }
 
-// mdlLogger_info(fileName);
-// 000000000 - 0000-000 - *.jpg
-
 int photoReader_parsePhotoName(LpPhotoReader thisP, int photoIndex, char* photoName) {
     FindFileInfo* fileP = NULL;
     char* fileName = NULL;
@@ -56,12 +53,15 @@ int photoReader_parsePhotoName(LpPhotoReader thisP, int photoIndex, char* photoN
     int firstDash = 0; //Find first dash -
     int secondDash = 0; //Find second dash -
     int startPhoto = 0, endPhoto = 0, index = 0;
-    if (photoIndex >= thisP->filesCount) return FALSE;
+    if (thisP == NULL) return FALSE;
+    if (photoIndex < 0) return FALSE; //Index is too small
+    if (photoIndex >= thisP->filesCount) return FALSE; //Index is too big
     if (photoName == NULL) return FALSE;
     fileP = &thisP->files[photoIndex];
     fileName = fileP->name;
     nameLength = strlen(fileName);
     //000000000 - 0000-000 - *.jpg
+    //find first dash
     for (index = 0; index < nameLength; index++) {
         char c = fileName[index];
         if (c == '-') {
@@ -70,6 +70,7 @@ int photoReader_parsePhotoName(LpPhotoReader thisP, int photoIndex, char* photoN
         }
     }
     secondDash = firstDash;
+    //find second dash
     for (index = firstDash + 1; index < nameLength; index++) {
         char c = fileName[index];
         if (c == '-') {
@@ -78,18 +79,20 @@ int photoReader_parsePhotoName(LpPhotoReader thisP, int photoIndex, char* photoN
         }
     }
     //search for right number
+    endPhoto = secondDash;
     for (index = secondDash + 1; index < nameLength; index++) {
         char c = fileName[index];
-        if (c < '0' || c > '9') {
-            break; //this is the end of digits
+        if (!isalnum(c)) {
+            break;
         }
         endPhoto = index; //update end index
     }
     //search for left number
+    startPhoto = secondDash;
     for (index = secondDash - 1; index >= 0; index--) {
         char c = fileName[index];
-        if (c < '0' || c > '9') {
-            break; //this is the end of digits
+        if (!isalnum(c)) {
+            break;
         }
         startPhoto = index; //update start index
     }

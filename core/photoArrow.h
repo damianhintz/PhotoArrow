@@ -16,7 +16,7 @@ typedef struct _photoArrow {
     DPoint3d endPoint;
 } PhotoArrow, *LpPhotoArrow;
 
-void photoArrow_normalizeLength(PhotoArrow* arrowP);
+void photoArrow_normalizeLength(PhotoArrow* arrowP, double maxLength);
 
 #endif /* PHOTOARROW_H */
 

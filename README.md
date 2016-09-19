@@ -22,8 +22,9 @@ Do zrobienia:
 
 2016-09-19 v1.3-beta
 
-* [ ] nowe polecenie do ustawiania domyślnego stylu
-* [ ] nowe polecenie do ustawiania domyślnej grubości
+* poprawione rozpoznawanie nazwy zdjęcia: `[a-z0-9]*-[a-z0-9]*`
+* [ ] nowe polecenie do ustawiania domyślnego stylu: `PhotoArrow arrow style 0`
+* [ ] nowe polecenie do ustawiania domyślnej grubości: `PhotoArrow arrow weight 1`
 
 2016-08-31 v1.2-beta
 
