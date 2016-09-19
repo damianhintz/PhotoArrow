@@ -13,6 +13,7 @@ int _refEndLevel = 47;
 int _arrowLevel = 7;
 int _arrowFont = 1;
 int _arrowColor = 0;
+int _arrowStyle = 0;
 double _arrowTextSize = 2.0;
 double _arrowMaxLength = 20.0;
 

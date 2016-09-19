@@ -35,6 +35,7 @@ void command_refEndLevel(int endLevel);
 void command_arrowLevel(int level);
 void command_arrowFont(int font);
 void command_arrowColor(int color);
+void command_arrowStyle(int style);
 void command_arrowTextSize(double size);
 void command_arrowMaxLength(double length);
 

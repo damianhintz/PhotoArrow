@@ -109,6 +109,15 @@ void command_arrowColor(int color) {
     mdlLogger_info(msg);
 }
 
+void command_arrowStyle(int style) {
+    char msg[256];
+    _arrowStyle = style;
+    //int mdlParams_setActive(void* param, int paramName);
+    mdlParams_setActive((void*) _arrowStyle, ACTIVEPARAM_LINESTYLE);
+    sprintf(msg, "command_arrowStyle: %d", _arrowStyle);
+    mdlLogger_info(msg);
+}
+
 void command_arrowTextSize(double size) {
     char msg[256];
     _arrowTextSize = size;
