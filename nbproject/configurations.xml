@@ -82,7 +82,7 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
     <itemPath>PhotoArrow.config</itemPath>
-    <itemPath>README.txt</itemPath>
+    <itemPath>README.md</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>core</Elem>
@@ -105,7 +105,7 @@
       </compileType>
       <item path="PhotoArrow.config" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="README.txt" ex="false" tool="3" flavor2="0">
+      <item path="README.md" ex="false" tool="3" flavor2="0">
       </item>
       <item path="app.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -220,7 +220,7 @@
       </compileType>
       <item path="PhotoArrow.config" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="README.txt" ex="false" tool="3" flavor2="0">
+      <item path="README.md" ex="false" tool="3" flavor2="0">
       </item>
       <item path="app.h" ex="false" tool="3" flavor2="0">
       </item>

@@ -1,21 +1,36 @@
-PhotoArrow v1.2-beta - Generowanie strzałek dla kierunków zdjęć
-Data publikacji: 31 sierpnia 2016
+PhotoArrow v1.2-beta, 31 sierpnia 2016
+---
+Generowanie strzałek dla kierunków zdjęć
 
-Nowe funkcje
+# Pomoc
 
-Użycie
-#Uruchomienie aplikacji
-mdl load PhotoArrow
-PhotoArrow start
+1. Sprawdź aktualizacje w [katalogu zdalnym](z:/Profile/damian/Microstation/PhotoArrow/)
+2. Zainstaluj program w [katalogu mdlapps]($MSDIR/mdlapps)
+3. Konfiguruj program w [pliku config](PhotoArrow.config)
+4. Uruchom program za pomocą wpisania keyin: `mdl load PhotoArrow`
+5. Podłącz strzałki referencyjnie i wybierz ogrodzenie
+6. Wygeneruj strzałki za pomocą wpisania keyin:  
+    PhotoArrow start
 
-** Zmiany (historia)
-Do zrobienia
-* podręcznik użytkownika
+# Historia
+
+Do zrobienia:
+
+- [ ] podręcznik użytkownika
+- [ ] domyślny styl 0
+- [ ] domyślna grubość 1
+
+2016-09-19 v1.3-beta
+
+* [ ] nowe polecenie do ustawiania domyślnego stylu
+* [ ] nowe polecenie do ustawiania domyślnej grubości
 
 2016-08-31 v1.2-beta
+
 * nowe polecenie do ustawiania maksymalnej długości strzałki (photoarrow arrow maxLength)
 
 2016-08-30 v1.1-beta
+
 * wybór obszaru ogrodzenia przez użytkownika
 * zmiana domyślnych warstw kierunku zdjęć na 7 i 47
 * nowe polecenie do ustawiania warstwy punktu początkowego (photoarrow ref startLevel)
@@ -32,6 +47,7 @@ Do zrobienia
 * wykrywanie duplikatów strzałek
 
 2016-08-22 v1.0-beta
+
 * pierwsza wersja programu
 * wyszukiwanie numerów zdjęć
 * wczytywanie numerów strzałek
